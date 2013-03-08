@@ -16,9 +16,7 @@
 		330FBB8616E96BAB000EA08C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 330FBB8516E96BAB000EA08C /* Default.png */; };
 		330FBB8816E96BAB000EA08C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 330FBB8716E96BAB000EA08C /* Default@2x.png */; };
 		330FBB8A16E96BAB000EA08C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 330FBB8916E96BAB000EA08C /* Default-568h@2x.png */; };
-		330FBB8D16E96BAB000EA08C /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330FBB8B16E96BAB000EA08C /* MainStoryboard_iPhone.storyboard */; };
-		330FBB9016E96BAB000EA08C /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330FBB8E16E96BAB000EA08C /* MainStoryboard_iPad.storyboard */; };
-		330FBB9316E96BAB000EA08C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330FBB9216E96BAB000EA08C /* ViewController.m */; };
+		330FBBA916E96CA5000EA08C /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 330FBBA816E96CA5000EA08C /* FlickrFetcher.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,10 +33,9 @@
 		330FBB8516E96BAB000EA08C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		330FBB8716E96BAB000EA08C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		330FBB8916E96BAB000EA08C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		330FBB8C16E96BAB000EA08C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		330FBB8F16E96BAB000EA08C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		330FBB9116E96BAB000EA08C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		330FBB9216E96BAB000EA08C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		330FBBA616E96CA5000EA08C /* FlickrAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
+		330FBBA716E96CA5000EA08C /* FlickrFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
+		330FBBA816E96CA5000EA08C /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,12 +82,10 @@
 		330FBB7916E96BAB000EA08C /* CoreDataSPot */ = {
 			isa = PBXGroup;
 			children = (
-				330FBB8216E96BAB000EA08C /* AppDelegate.h */,
-				330FBB8316E96BAB000EA08C /* AppDelegate.m */,
-				330FBB8B16E96BAB000EA08C /* MainStoryboard_iPhone.storyboard */,
-				330FBB8E16E96BAB000EA08C /* MainStoryboard_iPad.storyboard */,
-				330FBB9116E96BAB000EA08C /* ViewController.h */,
-				330FBB9216E96BAB000EA08C /* ViewController.m */,
+				330FBBA516E96CA5000EA08C /* FlickrFetcher */,
+				330FBBA416E96C8D000EA08C /* model */,
+				330FBBA316E96C7E000EA08C /* controller */,
+				330FBBA116E96C64000EA08C /* view */,
 				330FBB7A16E96BAB000EA08C /* Supporting Files */,
 			);
 			path = CoreDataSPot;
@@ -99,6 +94,8 @@
 		330FBB7A16E96BAB000EA08C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				330FBB8216E96BAB000EA08C /* AppDelegate.h */,
+				330FBB8316E96BAB000EA08C /* AppDelegate.m */,
 				330FBB7B16E96BAB000EA08C /* CoreDataSPot-Info.plist */,
 				330FBB7C16E96BAB000EA08C /* InfoPlist.strings */,
 				330FBB7F16E96BAB000EA08C /* main.m */,
@@ -108,6 +105,37 @@
 				330FBB8916E96BAB000EA08C /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		330FBBA116E96C64000EA08C /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		330FBBA316E96C7E000EA08C /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		330FBBA416E96C8D000EA08C /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		330FBBA516E96CA5000EA08C /* FlickrFetcher */ = {
+			isa = PBXGroup;
+			children = (
+				330FBBA616E96CA5000EA08C /* FlickrAPIKey.h */,
+				330FBBA716E96CA5000EA08C /* FlickrFetcher.h */,
+				330FBBA816E96CA5000EA08C /* FlickrFetcher.m */,
+			);
+			path = FlickrFetcher;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,8 +193,6 @@
 				330FBB8616E96BAB000EA08C /* Default.png in Resources */,
 				330FBB8816E96BAB000EA08C /* Default@2x.png in Resources */,
 				330FBB8A16E96BAB000EA08C /* Default-568h@2x.png in Resources */,
-				330FBB8D16E96BAB000EA08C /* MainStoryboard_iPhone.storyboard in Resources */,
-				330FBB9016E96BAB000EA08C /* MainStoryboard_iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,7 +205,7 @@
 			files = (
 				330FBB8016E96BAB000EA08C /* main.m in Sources */,
 				330FBB8416E96BAB000EA08C /* AppDelegate.m in Sources */,
-				330FBB9316E96BAB000EA08C /* ViewController.m in Sources */,
+				330FBBA916E96CA5000EA08C /* FlickrFetcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,22 +218,6 @@
 				330FBB7D16E96BAB000EA08C /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		330FBB8B16E96BAB000EA08C /* MainStoryboard_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				330FBB8C16E96BAB000EA08C /* en */,
-			);
-			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		330FBB8E16E96BAB000EA08C /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				330FBB8F16E96BAB000EA08C /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -306,6 +316,7 @@
 				330FBB9816E96BAB000EA08C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

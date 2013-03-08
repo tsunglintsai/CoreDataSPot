@@ -17,6 +17,11 @@
 		330FBB8816E96BAB000EA08C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 330FBB8716E96BAB000EA08C /* Default@2x.png */; };
 		330FBB8A16E96BAB000EA08C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 330FBB8916E96BAB000EA08C /* Default-568h@2x.png */; };
 		330FBBA916E96CA5000EA08C /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 330FBBA816E96CA5000EA08C /* FlickrFetcher.m */; };
+		330FBBAB16E96D63000EA08C /* StoryboardiPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330FBBAA16E96D63000EA08C /* StoryboardiPhone.storyboard */; };
+		330FBBAE16E96D80000EA08C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 330FBBAC16E96D80000EA08C /* Model.xcdatamodeld */; };
+		330FBBBD16E9717D000EA08C /* RecentPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = 330FBBBC16E9717D000EA08C /* RecentPhotos.m */; };
+		330FBBC016E9717D000EA08C /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 330FBBBF16E9717D000EA08C /* Photo.m */; };
+		330FBBC316E9717E000EA08C /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 330FBBC216E9717E000EA08C /* Tag.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +41,14 @@
 		330FBBA616E96CA5000EA08C /* FlickrAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
 		330FBBA716E96CA5000EA08C /* FlickrFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
 		330FBBA816E96CA5000EA08C /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
+		330FBBAA16E96D63000EA08C /* StoryboardiPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StoryboardiPhone.storyboard; sourceTree = "<group>"; };
+		330FBBAD16E96D80000EA08C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		330FBBBB16E9717D000EA08C /* RecentPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPhotos.h; sourceTree = "<group>"; };
+		330FBBBC16E9717D000EA08C /* RecentPhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPhotos.m; sourceTree = "<group>"; };
+		330FBBBE16E9717D000EA08C /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		330FBBBF16E9717D000EA08C /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		330FBBC116E9717E000EA08C /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
+		330FBBC216E9717E000EA08C /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +123,7 @@
 		330FBBA116E96C64000EA08C /* view */ = {
 			isa = PBXGroup;
 			children = (
+				330FBBAA16E96D63000EA08C /* StoryboardiPhone.storyboard */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -124,6 +138,13 @@
 		330FBBA416E96C8D000EA08C /* model */ = {
 			isa = PBXGroup;
 			children = (
+				330FBBC116E9717E000EA08C /* Tag.h */,
+				330FBBC216E9717E000EA08C /* Tag.m */,
+				330FBBBE16E9717D000EA08C /* Photo.h */,
+				330FBBBF16E9717D000EA08C /* Photo.m */,
+				330FBBBB16E9717D000EA08C /* RecentPhotos.h */,
+				330FBBBC16E9717D000EA08C /* RecentPhotos.m */,
+				330FBBAC16E96D80000EA08C /* Model.xcdatamodeld */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -193,6 +214,7 @@
 				330FBB8616E96BAB000EA08C /* Default.png in Resources */,
 				330FBB8816E96BAB000EA08C /* Default@2x.png in Resources */,
 				330FBB8A16E96BAB000EA08C /* Default-568h@2x.png in Resources */,
+				330FBBAB16E96D63000EA08C /* StoryboardiPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +228,10 @@
 				330FBB8016E96BAB000EA08C /* main.m in Sources */,
 				330FBB8416E96BAB000EA08C /* AppDelegate.m in Sources */,
 				330FBBA916E96CA5000EA08C /* FlickrFetcher.m in Sources */,
+				330FBBAE16E96D80000EA08C /* Model.xcdatamodeld in Sources */,
+				330FBBBD16E9717D000EA08C /* RecentPhotos.m in Sources */,
+				330FBBC016E9717D000EA08C /* Photo.m in Sources */,
+				330FBBC316E9717E000EA08C /* Tag.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +345,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		330FBBAC16E96D80000EA08C /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				330FBBAD16E96D80000EA08C /* Model.xcdatamodel */,
+			);
+			currentVersion = 330FBBAD16E96D80000EA08C /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 330FBB6616E96BAB000EA08C /* Project object */;
 }

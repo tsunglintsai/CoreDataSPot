@@ -39,6 +39,7 @@
 		33AD3B1216EADA39000E2C9B /* RecentPhotosTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 33AD3B1116EADA39000E2C9B /* RecentPhotosTVC.m */; };
 		33AD3B1616EADC71000E2C9B /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 33AD3B1416EADC71000E2C9B /* placeholder.png */; };
 		33AD3B1716EADC71000E2C9B /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33AD3B1516EADC71000E2C9B /* placeholder@2x.png */; };
+		33BE832416EB97AC009DAD59 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BE832316EB97AC009DAD59 /* CoreDataTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +98,8 @@
 		33AD3B1116EADA39000E2C9B /* RecentPhotosTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPhotosTVC.m; sourceTree = "<group>"; };
 		33AD3B1416EADC71000E2C9B /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		33AD3B1516EADC71000E2C9B /* placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder@2x.png"; sourceTree = "<group>"; };
+		33BE832216EB97AC009DAD59 /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
+		33BE832316EB97AC009DAD59 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +153,7 @@
 				330FBBA416E96C8D000EA08C /* model */,
 				33AD3B2716EB91FF000E2C9B /* core data */,
 				330FBBA316E96C7E000EA08C /* controller */,
+				33BE832116EB97AC009DAD59 /* CoreDataTableViewController */,
 				330FBBA116E96C64000EA08C /* view */,
 				330FBB7A16E96BAB000EA08C /* Supporting Files */,
 			);
@@ -255,6 +259,15 @@
 			name = "core data";
 			sourceTree = "<group>";
 		};
+		33BE832116EB97AC009DAD59 /* CoreDataTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				33BE832216EB97AC009DAD59 /* CoreDataTableViewController.h */,
+				33BE832316EB97AC009DAD59 /* CoreDataTableViewController.m */,
+			);
+			path = CoreDataTableViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -344,6 +357,7 @@
 				33AD3B0816EAD42F000E2C9B /* ImageFetcher.m in Sources */,
 				33AD3B0C16EAD5C2000E2C9B /* RecentPhotos+Create.m in Sources */,
 				33AD3B1216EADA39000E2C9B /* RecentPhotosTVC.m in Sources */,
+				33BE832416EB97AC009DAD59 /* CoreDataTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

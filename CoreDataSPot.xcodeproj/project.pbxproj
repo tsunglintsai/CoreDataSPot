@@ -61,24 +61,24 @@
 		330FBBAA16E96D63000EA08C /* StoryboardiPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StoryboardiPhone.storyboard; sourceTree = "<group>"; };
 		330FBBAD16E96D80000EA08C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		330FBBC416E97202000EA08C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		330FBBC616E9726A000EA08C /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
-		330FBBC716E9726A000EA08C /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
+		330FBBC616E9726A000EA08C /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataHelper.h; path = model/CoreDataHelper.h; sourceTree = "<group>"; };
+		330FBBC716E9726A000EA08C /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataHelper.m; path = model/CoreDataHelper.m; sourceTree = "<group>"; };
 		330FBBC916E976AC000EA08C /* MasterViewTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewTVC.h; sourceTree = "<group>"; };
 		330FBBCA16E976AC000EA08C /* MasterViewTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewTVC.m; sourceTree = "<group>"; };
-		330FBBCE16E977CA000EA08C /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
-		330FBBCF16E977CA000EA08C /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
-		330FBBD116E977CA000EA08C /* RecentPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPhotos.h; sourceTree = "<group>"; };
-		330FBBD216E977CA000EA08C /* RecentPhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPhotos.m; sourceTree = "<group>"; };
+		330FBBCE16E977CA000EA08C /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tag.h; path = model/Tag.h; sourceTree = "<group>"; };
+		330FBBCF16E977CA000EA08C /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tag.m; path = model/Tag.m; sourceTree = "<group>"; };
+		330FBBD116E977CA000EA08C /* RecentPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecentPhotos.h; path = model/RecentPhotos.h; sourceTree = "<group>"; };
+		330FBBD216E977CA000EA08C /* RecentPhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecentPhotos.m; path = model/RecentPhotos.m; sourceTree = "<group>"; };
 		330FBBD816E977FE000EA08C /* NetworkIndicatorHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkIndicatorHelper.h; sourceTree = "<group>"; };
 		330FBBD916E977FE000EA08C /* NetworkIndicatorHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkIndicatorHelper.m; sourceTree = "<group>"; };
 		330FBBEB16E989F7000EA08C /* FlickerPhotoSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickerPhotoSync.h; sourceTree = "<group>"; };
 		330FBBEC16E989F7000EA08C /* FlickerPhotoSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickerPhotoSync.m; sourceTree = "<group>"; };
-		330FBBEE16E98E1D000EA08C /* Tag+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tag+Create.h"; sourceTree = "<group>"; };
-		330FBBEF16E98E1D000EA08C /* Tag+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Tag+Create.m"; sourceTree = "<group>"; };
-		330FBBF116E99246000EA08C /* Photo+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Photo+Create.h"; sourceTree = "<group>"; };
-		330FBBF216E99246000EA08C /* Photo+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Photo+Create.m"; sourceTree = "<group>"; };
-		33AD3AED16EA854E000E2C9B /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
-		33AD3AEE16EA854F000E2C9B /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		330FBBEE16E98E1D000EA08C /* Tag+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Tag+Create.h"; path = "model/Tag+Create.h"; sourceTree = "<group>"; };
+		330FBBEF16E98E1D000EA08C /* Tag+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Tag+Create.m"; path = "model/Tag+Create.m"; sourceTree = "<group>"; };
+		330FBBF116E99246000EA08C /* Photo+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Photo+Create.h"; path = "model/Photo+Create.h"; sourceTree = "<group>"; };
+		330FBBF216E99246000EA08C /* Photo+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Photo+Create.m"; path = "model/Photo+Create.m"; sourceTree = "<group>"; };
+		33AD3AED16EA854E000E2C9B /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = model/Photo.h; sourceTree = "<group>"; };
+		33AD3AEE16EA854F000E2C9B /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = model/Photo.m; sourceTree = "<group>"; };
 		33AD3AF516EA8945000E2C9B /* TagTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagTVC.h; sourceTree = "<group>"; };
 		33AD3AF616EA8945000E2C9B /* TagTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagTVC.m; sourceTree = "<group>"; };
 		33AD3AF816EA8B8D000E2C9B /* StanfordTagTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StanfordTagTVC.h; sourceTree = "<group>"; };
@@ -91,8 +91,8 @@
 		33AD3B0216EAD419000E2C9B /* UIImage+FromURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FromURL.m"; sourceTree = "<group>"; };
 		33AD3B0416EAD42D000E2C9B /* ImageFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFetcher.h; sourceTree = "<group>"; };
 		33AD3B0516EAD42D000E2C9B /* ImageFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFetcher.m; sourceTree = "<group>"; };
-		33AD3B0A16EAD5C2000E2C9B /* RecentPhotos+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RecentPhotos+Create.h"; sourceTree = "<group>"; };
-		33AD3B0B16EAD5C2000E2C9B /* RecentPhotos+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RecentPhotos+Create.m"; sourceTree = "<group>"; };
+		33AD3B0A16EAD5C2000E2C9B /* RecentPhotos+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RecentPhotos+Create.h"; path = "model/RecentPhotos+Create.h"; sourceTree = "<group>"; };
+		33AD3B0B16EAD5C2000E2C9B /* RecentPhotos+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RecentPhotos+Create.m"; path = "model/RecentPhotos+Create.m"; sourceTree = "<group>"; };
 		33AD3B1016EADA39000E2C9B /* RecentPhotosTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPhotosTVC.h; sourceTree = "<group>"; };
 		33AD3B1116EADA39000E2C9B /* RecentPhotosTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPhotosTVC.m; sourceTree = "<group>"; };
 		33AD3B1416EADC71000E2C9B /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
@@ -148,6 +148,7 @@
 				33AD3B1316EADBE4000E2C9B /* image */,
 				330FBBA516E96CA5000EA08C /* FlickrFetcher */,
 				330FBBA416E96C8D000EA08C /* model */,
+				33AD3B2716EB91FF000E2C9B /* core data */,
 				330FBBA316E96C7E000EA08C /* controller */,
 				330FBBA116E96C64000EA08C /* view */,
 				330FBB7A16E96BAB000EA08C /* Supporting Files */,
@@ -207,21 +208,6 @@
 				33AD3B0516EAD42D000E2C9B /* ImageFetcher.m */,
 				33AD3B0116EAD419000E2C9B /* UIImage+FromURL.h */,
 				33AD3B0216EAD419000E2C9B /* UIImage+FromURL.m */,
-				330FBBAC16E96D80000EA08C /* Model.xcdatamodeld */,
-				33AD3AED16EA854E000E2C9B /* Photo.h */,
-				33AD3AEE16EA854F000E2C9B /* Photo.m */,
-				330FBBF116E99246000EA08C /* Photo+Create.h */,
-				330FBBF216E99246000EA08C /* Photo+Create.m */,
-				330FBBD116E977CA000EA08C /* RecentPhotos.h */,
-				330FBBD216E977CA000EA08C /* RecentPhotos.m */,
-				33AD3B0A16EAD5C2000E2C9B /* RecentPhotos+Create.h */,
-				33AD3B0B16EAD5C2000E2C9B /* RecentPhotos+Create.m */,
-				330FBBCE16E977CA000EA08C /* Tag.h */,
-				330FBBCF16E977CA000EA08C /* Tag.m */,
-				330FBBEE16E98E1D000EA08C /* Tag+Create.h */,
-				330FBBEF16E98E1D000EA08C /* Tag+Create.m */,
-				330FBBC616E9726A000EA08C /* CoreDataHelper.h */,
-				330FBBC716E9726A000EA08C /* CoreDataHelper.m */,
 				330FBBEB16E989F7000EA08C /* FlickerPhotoSync.h */,
 				330FBBEC16E989F7000EA08C /* FlickerPhotoSync.m */,
 			);
@@ -245,6 +231,28 @@
 				33AD3B1516EADC71000E2C9B /* placeholder@2x.png */,
 			);
 			path = image;
+			sourceTree = "<group>";
+		};
+		33AD3B2716EB91FF000E2C9B /* core data */ = {
+			isa = PBXGroup;
+			children = (
+				330FBBAC16E96D80000EA08C /* Model.xcdatamodeld */,
+				33AD3AED16EA854E000E2C9B /* Photo.h */,
+				33AD3AEE16EA854F000E2C9B /* Photo.m */,
+				330FBBF116E99246000EA08C /* Photo+Create.h */,
+				330FBBF216E99246000EA08C /* Photo+Create.m */,
+				330FBBD116E977CA000EA08C /* RecentPhotos.h */,
+				330FBBD216E977CA000EA08C /* RecentPhotos.m */,
+				33AD3B0A16EAD5C2000E2C9B /* RecentPhotos+Create.h */,
+				33AD3B0B16EAD5C2000E2C9B /* RecentPhotos+Create.m */,
+				330FBBCE16E977CA000EA08C /* Tag.h */,
+				330FBBCF16E977CA000EA08C /* Tag.m */,
+				330FBBEE16E98E1D000EA08C /* Tag+Create.h */,
+				330FBBEF16E98E1D000EA08C /* Tag+Create.m */,
+				330FBBC616E9726A000EA08C /* CoreDataHelper.h */,
+				330FBBC716E9726A000EA08C /* CoreDataHelper.m */,
+			);
+			name = "core data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -457,7 +465,8 @@
 				330FBBAD16E96D80000EA08C /* Model.xcdatamodel */,
 			);
 			currentVersion = 330FBBAD16E96D80000EA08C /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
+			name = Model.xcdatamodeld;
+			path = model/Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

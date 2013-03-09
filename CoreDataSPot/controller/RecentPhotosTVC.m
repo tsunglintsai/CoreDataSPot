@@ -7,7 +7,6 @@
 //
 
 #import "RecentPhotosTVC.h"
-#import "RecentPhotos+Create.h"
 #import "CoreDataHelper.h"
 
 @interface RecentPhotosTVC ()
@@ -15,12 +14,14 @@
 @end
 
 @implementation RecentPhotosTVC
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:YES];
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    self.photoListPredicate = [NSPredicate predicateWithFormat:@"recent != nil"];
+    self.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"recent.orderNumber" ascending:YES]];
     [[CoreDataHelper sharedInstance]executeBlock:^(NSManagedObjectContext *context) {
-        self.photos = [[[RecentPhotos recentPhotosInManagedObjectContext:context]list]array];
+        self.managedObjectContext = context;
     }];
+
 }
 
 @end

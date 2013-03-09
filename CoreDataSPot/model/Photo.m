@@ -2,12 +2,12 @@
 //  Photo.m
 //  CoreDataSPot
 //
-//  Created by Daniela on 3/8/13.
+//  Created by Henry on 3/9/13.
 //  Copyright (c) 2013 Pyrogusto. All rights reserved.
 //
 
 #import "Photo.h"
-#import "RecentPhotos.h"
+#import "RecentPhoto.h"
 #import "Tag.h"
 
 
@@ -15,12 +15,12 @@
 
 @dynamic imageHURL;
 @dynamic imageMURL;
+@dynamic imageSURL;
 @dynamic photoId;
 @dynamic subtitle;
 @dynamic thumbnail;
 @dynamic title;
-@dynamic imageSURL;
-@dynamic recent;
 @dynamic tags;
+@dynamic recent;
 
 @end

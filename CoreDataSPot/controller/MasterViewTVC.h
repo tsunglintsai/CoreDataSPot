@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CoreDataTableViewController.h"
 
-@interface MasterViewTVC : UITableViewController<UISplitViewControllerDelegate>
+@interface MasterViewTVC : CoreDataTableViewController<UISplitViewControllerDelegate>
 - (void)transferSplitViewBarButtonItemToViewController:(id)destinationViewController;
 @end

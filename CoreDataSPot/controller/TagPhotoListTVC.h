@@ -1,18 +1,14 @@
 //
-//  Tag.m
+//  TagPhotoListTVC.h
 //  CoreDataSPot
 //
 //  Created by Henry on 3/9/13.
 //  Copyright (c) 2013 Pyrogusto. All rights reserved.
 //
 
+#import "PhotoListTVC.h"
 #import "Tag.h"
-#import "Photo.h"
 
-
-@implementation Tag
-
-@dynamic tagName;
-@dynamic photos;
-
+@interface TagPhotoListTVC : PhotoListTVC
+@property (nonatomic, strong) Tag *tag;
 @end

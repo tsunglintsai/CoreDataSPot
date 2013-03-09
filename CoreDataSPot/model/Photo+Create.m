@@ -7,43 +7,52 @@
 //
 
 #import "Photo+Create.h"
+#import "FlickrFetcher.h"
+#import "Tag+Create.h"
+
+#define INVALID_TAGS @[@"cs193pspot", @"portrait" , @"landscape" ]
 
 @implementation Photo (Create)
-+ (Photo *)photoWithTitle:(NSString *)title
-                 subtitle:(NSString*)subtitle
-                imageMURL:(NSString*)imageMURL
-                imageHURL:(NSString*)imageHURL
-                imageSURL:(NSString*)imageSURL
-                  photoId:(NSNumber*)photoId
-   inManagedObjectContext:(NSManagedObjectContext *)context{
-    __block Photo *photo = nil;
+
++ (Photo *)photoFlickrPhoto:(NSDictionary *)flickrPhoto
+     inManagedObjectContext:(NSManagedObjectContext *)context{
+    Photo *photo = nil;
     
-    [context performBlockAndWait:^{
-        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
-        request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"photoId" ascending:YES ]];
-        request.predicate = [NSPredicate predicateWithFormat:@"photoId = %@", photoId];
-        NSError *error;
-        NSArray *matches = [context executeFetchRequest:request error:&error];
-        if (!matches || ([matches count] > 1)) {
-            // handle error
-            NSLog(@"ERROR:more than one match");
-        } else if (![matches count]) {
-            photo = [NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:context];
-            photo.title = title;
-            photo.subtitle = subtitle;
-            photo.imageMURL = imageMURL;
-            photo.imageHURL = imageHURL;
-            photo.imageSURL = imageSURL;
-            photo.photoId = photoId;
-            //NSLog(@"create new photo entry in database");
-        } else {
-            photo = [matches lastObject];
-            //NSLog(@"found photo entry in database");
+    NSNumberFormatter *f = [[NSNumberFormatter alloc]init];
+    [f setNumberStyle:NSNumberFormatterNoStyle];
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"photoId" ascending:YES ]];
+    request.predicate = [NSPredicate predicateWithFormat:@"photoId = %@", [f numberFromString:[flickrPhoto valueForKeyPath:FLICKR_PHOTO_ID]]];
+    NSError *error;
+    NSArray *matches = [context executeFetchRequest:request error:&error];
+    if (!matches || ([matches count] > 1)) {
+        // handle error
+        NSLog(@"ERROR:more than one match");
+    } else if (![matches count]) {
+        photo = [NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:context];
+        photo.title     = [flickrPhoto valueForKeyPath:FLICKR_PHOTO_TITLE];
+        photo.subtitle  = [flickrPhoto valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
+        photo.imageMURL = [[FlickrFetcher urlForPhoto:flickrPhoto format:FlickrPhotoFormatLarge]    absoluteString];
+        photo.imageHURL = [[FlickrFetcher urlForPhoto:flickrPhoto format:FlickrPhotoFormatOriginal] absoluteString];
+        photo.imageSURL = [[FlickrFetcher urlForPhoto:flickrPhoto format:FlickrPhotoFormatSquare]   absoluteString];
+        photo.photoId   = [f numberFromString:[flickrPhoto valueForKeyPath:FLICKR_PHOTO_ID]];
+        // assigne photo to tags
+        NSArray *tags = [[flickrPhoto valueForKeyPath:FLICKR_TAGS] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        for( NSString *tagString in tags){
+            if(![INVALID_TAGS containsObject:tagString]){ // remove those tags
+                Tag *tag = [Tag tagWithName:tagString inManagedObjectContext:context];
+                [photo addTagsObject:tag];
+            }
         }
-        if(error){
-            NSLog(@"ERROR:%@",[error description]);
-        }
-    }];
+    } else {
+        photo = [matches lastObject];
+        //NSLog(@"found photo entry in database");
+    }
+    if(error){
+        NSLog(@"ERROR:%@",[error description]);
+    }
     return photo;
 }
+
 @end

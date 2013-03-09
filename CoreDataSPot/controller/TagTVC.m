@@ -14,44 +14,48 @@
 
 @implementation TagTVC
 
-- (void) awakeFromNib{
-    [super awakeFromNib];
-    self.splitViewController.delegate = self;
-}
+// The Model for this class.
+//
+// When it gets set, we create an NSFetchRequest to get all Photographers in the database associated with it.
+// Then we hook that NSFetchRequest up to the table view using an NSFetchedResultsController.
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.tagList count];
+- (void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext{
+    _managedObjectContext = managedObjectContext;
+    if (managedObjectContext) {
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Tag"];
+        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"tagName" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
+        request.predicate = nil; // all Photographers
+        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    } else {
+        self.fetchedResultsController = nil;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *CellIdentifier = @"TagCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    cell.textLabel.text = [[self titleForRow:indexPath.row]capitalizedString];
-    cell.detailTextLabel.text = [self subtitleForRow:indexPath.row];
+    Tag *tag = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = [tag.tagName capitalizedString];
+    cell.detailTextLabel.text = [@[ @([tag.photos count]) , [tag.photos count] > 1 ? @"photos":@"photo"] componentsJoinedByString:@" "];
     return cell;
 }
 
-- (NSString*) titleForRow:(NSUInteger)row{
-    return [[self.tagList objectAtIndex:row]tagName];
+- (void) awakeFromNib{
+    [super awakeFromNib];
+    self.splitViewController.delegate = self;
 }
 
-- (NSString *) subtitleForRow:(NSUInteger)row{
-    Tag *tag = [self.tagList objectAtIndex:row];
-    return [@[ @([tag.photos count]) , [tag.photos count] > 1 ? @"photos":@"photo"] componentsJoinedByString:@" "];
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([sender isKindOfClass:[UITableViewCell class]]) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         if (indexPath) {
             if ([segue.identifier isEqualToString:@"Push To Photo List"]) {
-                if ([segue.destinationViewController respondsToSelector:@selector(setPhotos:)]) {
-                    NSArray *photos = [[[self.tagList objectAtIndex:indexPath.row]photos]allObjects];
-                    NSSortDescriptor *descriptor = [[NSSortDescriptor alloc]initWithKey:@"title" ascending:YES selector:@selector(caseInsensitiveCompare:)];
-                    photos = [photos sortedArrayUsingDescriptors:@[descriptor]];
-                    [segue.destinationViewController performSelector:@selector(setPhotos:) withObject:photos];
-                    [segue.destinationViewController setTitle:[[self titleForRow:indexPath.row]capitalizedString]];
+                if ([segue.destinationViewController respondsToSelector:@selector(setTag:)]) {
+                    Tag *tag = [self.fetchedResultsController objectAtIndexPath:indexPath];
+                    [segue.destinationViewController performSelector:@selector(setTag:) withObject:tag];
+                }
+                if ([segue.destinationViewController respondsToSelector:@selector(setManagedObjectContext:)]) {
+                    [segue.destinationViewController performSelector:@selector(setManagedObjectContext:) withObject:self.managedObjectContext];
                 }
             }
         }

@@ -10,5 +10,9 @@
 #import "MasterViewTVC.h"
 
 @interface PhotoListTVC : MasterViewTVC
-@property (nonatomic, strong) NSArray *photos; // of NSDictionary
+// The Model for this class.
+// Essentially specifies the database to look in to find all Photographers to display in this table.
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) NSPredicate *photoListPredicate; // predicate to filter photo needed
+@property (nonatomic, strong) NSArray *sortDescriptors; // array of NSSortDescriptor describing how photo been sorted
 @end

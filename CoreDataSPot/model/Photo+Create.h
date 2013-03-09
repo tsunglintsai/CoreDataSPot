@@ -9,11 +9,6 @@
 #import "Photo.h"
 
 @interface Photo (Create)
-+ (Photo *)photoWithTitle:(NSString *)title
-                 subtitle:(NSString*)subtitle
-                imageMURL:(NSString*)imageMURL
-                imageHURL:(NSString*)imageHURL
-                imageSURL:(NSString*)imageSURL
-                  photoId:(NSNumber*)photoId
++ (Photo *)photoFlickrPhoto:(NSDictionary *)flickrPhoto
    inManagedObjectContext:(NSManagedObjectContext *)context;
 @end

@@ -23,6 +23,7 @@ typedef void (^LoadDataCallBackBlock)(void);
 
 - (void) viewDidLoad{
     [super viewDidLoad];
+        
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc]init];
     refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"Pull To Load New Data"];
     [refreshControl addTarget:self
@@ -30,11 +31,13 @@ typedef void (^LoadDataCallBackBlock)(void);
              forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refreshControl;
     [self.refreshControl beginRefreshing];
-    [self loadModelDataWithCompleteHandler:^{
-        if([self.tagList count]==0){
+    self.isReloading = YES;
+    [[CoreDataHelper sharedInstance] executeBlock:^(NSManagedObjectContext *context) {
+        self.managedObjectContext = context;
+        self.isReloading = NO;
+        if([self.fetchedResultsController.fetchedObjects count] == 0){
             [self refresh];
         }else{
-            [self.tableView reloadData];
             [self.refreshControl endRefreshing];
         }
     }];
@@ -49,33 +52,17 @@ typedef void (^LoadDataCallBackBlock)(void);
         self.isReloading = YES;
         dispatch_async(dispatch_queue_create("edu.stanford", DISPATCH_QUEUE_SERIAL), ^{
             [FlickerPhotoSync syncWithCompletionHandler:^{
-                [[CoreDataHelper sharedInstance] executeBlock:^(NSManagedObjectContext *context) {
-                    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Tag"];
-                    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"tagName" ascending:YES selector:@selector(caseInsensitiveCompare:)]];
-                    NSError *error;
-                    self.tagList = [context executeFetchRequest:request error:&error];
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        //update the table view's Model to the new data, reloadData if necessary // and let the user know the refresh is over (stop spinner)
-                        [self.tableView reloadData];
-                        [self.refreshControl endRefreshing];
-                        [self hideBusyIndicator];
-                        self.isReloading = NO;
-                    });
-                }];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    //update the table view's Model to the new data, reloadData if necessary // and let the user know the refresh is over (stop spinner)
+                    [self.refreshControl endRefreshing];
+                    [self hideBusyIndicator];
+                    self.isReloading = NO;
+                });
             }];
         });
     }
 }
 
-- (void)loadModelDataWithCompleteHandler:(LoadDataCallBackBlock)callBackBlock{
-    [[CoreDataHelper sharedInstance] executeBlock:^(NSManagedObjectContext *context) {
-        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Tag"];
-        request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"tagName" ascending:YES ]];
-        NSError *error;
-        self.tagList = [context executeFetchRequest:request error:&error];
-        callBackBlock();
-    }];
-}
 
 - (UIActivityIndicatorView*) activityIndicatorView{
     if(_activityIndicatorView == nil){

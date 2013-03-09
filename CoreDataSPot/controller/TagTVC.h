@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "MasterViewTVC.h"
-//#import "FlickrPhotoTVC.h"
 
-//@interface TagTVC : MasterViewTVC<FlickrPhotoTVCDelegate>
 @interface TagTVC : MasterViewTVC
-@property (nonatomic,strong) NSArray *tagList; // list of Tag object
+
+// The Model for this class.
+// Essentially specifies the database to look in to find all Photographers to display in this table.
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @end

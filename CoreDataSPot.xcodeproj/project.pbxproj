@@ -30,6 +30,8 @@
 		33462E1416EC457F0048CC65 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 33462E1316EC457F0048CC65 /* Tag.m */; };
 		33462E1A16EC48C50048CC65 /* NSString+FetchedGroupByString.m in Sources */ = {isa = PBXBuildFile; fileRef = 33462E1916EC48C50048CC65 /* NSString+FetchedGroupByString.m */; };
 		33462E1D16EC55320048CC65 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 33462E1C16EC55320048CC65 /* Photo.m */; };
+		33A8E58416EC7454008DB85D /* StoryboardiPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33A8E58316EC7454008DB85D /* StoryboardiPad.storyboard */; };
+		33A8E59016EC7914008DB85D /* MyUIManagedDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A8E58F16EC7914008DB85D /* MyUIManagedDocument.m */; };
 		33AD3AF716EA8945000E2C9B /* TagTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 33AD3AF616EA8945000E2C9B /* TagTVC.m */; };
 		33AD3AFA16EA8B8D000E2C9B /* StanfordTagTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 33AD3AF916EA8B8D000E2C9B /* StanfordTagTVC.m */; };
 		33AD3AFD16EAD036000E2C9B /* PhotoListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 33AD3AFC16EAD036000E2C9B /* PhotoListTVC.m */; };
@@ -84,6 +86,9 @@
 		33462E1916EC48C50048CC65 /* NSString+FetchedGroupByString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FetchedGroupByString.m"; sourceTree = "<group>"; };
 		33462E1B16EC55320048CC65 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = model/Photo.h; sourceTree = "<group>"; };
 		33462E1C16EC55320048CC65 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = model/Photo.m; sourceTree = "<group>"; };
+		33A8E58316EC7454008DB85D /* StoryboardiPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StoryboardiPad.storyboard; sourceTree = "<group>"; };
+		33A8E58E16EC7914008DB85D /* MyUIManagedDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyUIManagedDocument.h; sourceTree = "<group>"; };
+		33A8E58F16EC7914008DB85D /* MyUIManagedDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyUIManagedDocument.m; sourceTree = "<group>"; };
 		33AD3AF516EA8945000E2C9B /* TagTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagTVC.h; sourceTree = "<group>"; };
 		33AD3AF616EA8945000E2C9B /* TagTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagTVC.m; sourceTree = "<group>"; };
 		33AD3AF816EA8B8D000E2C9B /* StanfordTagTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StanfordTagTVC.h; sourceTree = "<group>"; };
@@ -186,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				330FBBAA16E96D63000EA08C /* StoryboardiPhone.storyboard */,
+				33A8E58316EC7454008DB85D /* StoryboardiPad.storyboard */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -265,6 +271,8 @@
 				330FBBEF16E98E1D000EA08C /* Tag+Create.m */,
 				330FBBC616E9726A000EA08C /* CoreDataHelper.h */,
 				330FBBC716E9726A000EA08C /* CoreDataHelper.m */,
+				33A8E58E16EC7914008DB85D /* MyUIManagedDocument.h */,
+				33A8E58F16EC7914008DB85D /* MyUIManagedDocument.m */,
 			);
 			name = "core data";
 			sourceTree = "<group>";
@@ -337,6 +345,7 @@
 				330FBBAB16E96D63000EA08C /* StoryboardiPhone.storyboard in Resources */,
 				33AD3B1616EADC71000E2C9B /* placeholder.png in Resources */,
 				33AD3B1716EADC71000E2C9B /* placeholder@2x.png in Resources */,
+				33A8E58416EC7454008DB85D /* StoryboardiPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +396,7 @@
 				33462E1416EC457F0048CC65 /* Tag.m in Sources */,
 				33462E1A16EC48C50048CC65 /* NSString+FetchedGroupByString.m in Sources */,
 				33462E1D16EC55320048CC65 /* Photo.m in Sources */,
+				33A8E59016EC7914008DB85D /* MyUIManagedDocument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

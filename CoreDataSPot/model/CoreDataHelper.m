@@ -7,6 +7,7 @@
 //
 
 #import "CoreDataHelper.h"
+#import "MyUIManagedDocument.h"
 
 @interface CoreDataHelper()
 @property (strong, nonatomic) UIManagedDocument *document;
@@ -30,8 +31,9 @@
         completionBlock(self.document.managedObjectContext);
     }else{ // if document is not open then open it or create it
         NSURL *docURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-        docURL = [docURL URLByAppendingPathComponent:@"ce.sqlite"];
-        self.document = [[UIManagedDocument alloc] initWithFileURL:docURL];
+        docURL = [docURL URLByAppendingPathComponent:@"core data"];
+        
+        self.document = [[MyUIManagedDocument alloc] initWithFileURL:docURL];
         if([[NSFileManager defaultManager] fileExistsAtPath:[docURL path]]){
             //NSLog(@"found dataDocument");
             [self.document openWithCompletionHandler:^(BOOL success){

@@ -16,12 +16,13 @@
 @implementation RecentPhotosTVC
 -(void)viewDidLoad{
     [super viewDidLoad];
-    self.photoListPredicate = [NSPredicate predicateWithFormat:@"recent != nil"];
+    self.photoListPredicate = [NSPredicate predicateWithFormat:@"(recent != nil) AND (isSoftDeleted == NO)"];
     self.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"recent.orderNumber" ascending:YES]];
     [[CoreDataHelper sharedInstance]executeBlock:^(NSManagedObjectContext *context) {
         self.managedObjectContext = context;
     }];
-
 }
-
+- (NSString*) sectionKeyPath{
+    return @"title.stringGroupByFirstInitial";
+}
 @end

@@ -28,7 +28,7 @@
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
         request.sortDescriptors = self.sortDescriptors;
         request.predicate = self.photoListPredicate;
-        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:managedObjectContext sectionNameKeyPath:self.sectionKeyPath cacheName:nil];
     } else {
         self.fetchedResultsController = nil;
     }
@@ -46,9 +46,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Flickr Photo";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath];
-
     // Configure the cell...
     cell.textLabel.text = photo.title;
     cell.detailTextLabel.text = photo.subtitle;
@@ -80,10 +79,17 @@
 // if it does, it sends setImageURL: to the destination view controller with
 //  the URL of the photo that was selected in the UITableView as the argument
 // also sets the title of the destination view controller to the photo's title
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([sender isKindOfClass:[UITableViewCell class]]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        
+        NSIndexPath *indexPath;
+
+        if (self.searchDisplayController.active) {
+            indexPath = [self.searchDisplayController.searchResultsTableView indexPathForCell:sender];
+        } else {
+            indexPath = [self.tableView indexPathForCell:sender];
+        }        
+        
         if (indexPath) {
             if ([segue.identifier isEqualToString:@"Show Image"]) {
                 if ([segue.destinationViewController respondsToSelector:@selector(setImageURL:)]) {
@@ -102,6 +108,8 @@
             }
         }
     }
-    
 }
+
+
+
 @end

@@ -8,6 +8,7 @@
 
 #import "TagTVC.h"
 #import "Tag.h"
+#import "Photo.h"
 
 @interface TagTVC ()
 @end
@@ -24,20 +25,31 @@
     if (managedObjectContext) {
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Tag"];
         request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"tagName" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
-        request.predicate = nil; // all Photographers
-        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+        request.predicate = nil; // 
+        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:managedObjectContext sectionNameKeyPath:@"tagName.stringGroupByFirstInitial" cacheName:nil];
     } else {
         self.fetchedResultsController = nil;
     }
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{    
     static NSString *CellIdentifier = @"TagCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     Tag *tag = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [tag.tagName capitalizedString];
-    cell.detailTextLabel.text = [@[ @([tag.photos count]) , [tag.photos count] > 1 ? @"photos":@"photo"] componentsJoinedByString:@" "];
+    NSUInteger photoCount = [self photoCount:[tag.photos allObjects]];
+    cell.detailTextLabel.text = [@[ @(photoCount) , photoCount > 1 ? @"photos":@"photo"] componentsJoinedByString:@" "];
     return cell;
+}
+
+- (NSUInteger) photoCount:(NSArray*) photoList{
+    NSUInteger result = 0 ;
+    for(Photo *photo in photoList){
+        if(photo.isSoftDeleted == @(NO) ){
+            result++;
+        }
+    }
+    return result;
 }
 
 - (void) awakeFromNib{

@@ -12,9 +12,17 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="r8W-fb-udZ">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="SrX-zx-FpE" id="IyC-QP-yhl"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Flickr Photo" textLabel="tDc-2i-faC" detailTextLabel="JN0-S1-fi5" imageView="O1D-LZ-Hcl" style="IBUITableViewCellStyleSubtitle" id="bpk-tV-Vdn">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
@@ -50,8 +58,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="zKI-LH-LZ3"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="MoO-98-U79" id="B6u-5a-C6M"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tjB-uM-4jB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="MoO-98-U79">
+                    <connections>
+                        <outlet property="delegate" destination="SrX-zx-FpE" id="r9V-bK-Chs"/>
+                        <outlet property="searchBar" destination="r8W-fb-udZ" id="jek-ER-7Ja"/>
+                        <outlet property="searchContentsController" destination="SrX-zx-FpE" id="xLo-D6-rKr"/>
+                        <outlet property="searchResultsDataSource" destination="SrX-zx-FpE" id="0qu-OX-qHd"/>
+                        <outlet property="searchResultsDelegate" destination="SrX-zx-FpE" id="Kk1-Xx-edh"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1701" y="75"/>
         </scene>
@@ -270,46 +290,6 @@
     <resources>
         <image name="placeholder.png" width="75" height="75"/>
     </resources>
-    <classes>
-        <class className="CoreDataTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
-        </class>
-        <class className="ImageViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="activityIndicatorView" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="downloadInfoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="downloadProgressBar" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="titleBarButtonItem" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
-            </relationships>
-        </class>
-        <class className="MasterViewTVC" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewTVC.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="PhotoListTVC" superclassName="MasterViewTVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoListTVC.h"/>
-        </class>
-        <class className="RecentPhotosTVC" superclassName="PhotoListTVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecentPhotosTVC.h"/>
-        </class>
-        <class className="StanfordTagTVC" superclassName="TagTVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StanfordTagTVC.h"/>
-        </class>
-        <class className="TagPhotoListTVC" superclassName="PhotoListTVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TagPhotoListTVC.h"/>
-        </class>
-        <class className="TagTVC" superclassName="MasterViewTVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TagTVC.h"/>
-        </class>
-        <class className="UIRefreshControl" superclassName="UIControl">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIRefreshControl.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

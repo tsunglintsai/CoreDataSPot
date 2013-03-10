@@ -2,7 +2,7 @@
 //  Tag.m
 //  CoreDataSPot
 //
-//  Created by Henry on 3/9/13.
+//  Created by Daniela on 3/9/13.
 //  Copyright (c) 2013 Pyrogusto. All rights reserved.
 //
 

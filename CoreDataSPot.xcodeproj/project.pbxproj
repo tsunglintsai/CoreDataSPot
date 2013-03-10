@@ -26,6 +26,10 @@
 		330FBBED16E989F7000EA08C /* FlickerPhotoSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 330FBBEC16E989F7000EA08C /* FlickerPhotoSync.m */; };
 		330FBBF016E98E1D000EA08C /* Tag+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 330FBBEF16E98E1D000EA08C /* Tag+Create.m */; };
 		330FBBF316E99247000EA08C /* Photo+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 330FBBF216E99246000EA08C /* Photo+Create.m */; };
+		33462E1016EC457F0048CC65 /* RecentPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 33462E0F16EC457F0048CC65 /* RecentPhoto.m */; };
+		33462E1416EC457F0048CC65 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 33462E1316EC457F0048CC65 /* Tag.m */; };
+		33462E1A16EC48C50048CC65 /* NSString+FetchedGroupByString.m in Sources */ = {isa = PBXBuildFile; fileRef = 33462E1916EC48C50048CC65 /* NSString+FetchedGroupByString.m */; };
+		33462E1D16EC55320048CC65 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 33462E1C16EC55320048CC65 /* Photo.m */; };
 		33AD3AF716EA8945000E2C9B /* TagTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 33AD3AF616EA8945000E2C9B /* TagTVC.m */; };
 		33AD3AFA16EA8B8D000E2C9B /* StanfordTagTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 33AD3AF916EA8B8D000E2C9B /* StanfordTagTVC.m */; };
 		33AD3AFD16EAD036000E2C9B /* PhotoListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 33AD3AFC16EAD036000E2C9B /* PhotoListTVC.m */; };
@@ -37,9 +41,6 @@
 		33AD3B1716EADC71000E2C9B /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33AD3B1516EADC71000E2C9B /* placeholder@2x.png */; };
 		33BE832416EB97AC009DAD59 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BE832316EB97AC009DAD59 /* CoreDataTableViewController.m */; };
 		BADDEAC516EBB56B004687A6 /* TagPhotoListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BADDEAC416EBB56B004687A6 /* TagPhotoListTVC.m */; };
-		BADDEAE616EBC4F2004687A6 /* RecentPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = BADDEAE516EBC4F2004687A6 /* RecentPhoto.m */; };
-		BADDEAE916EBC4F2004687A6 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = BADDEAE816EBC4F2004687A6 /* Photo.m */; };
-		BADDEAEC16EBC4F3004687A6 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = BADDEAEB16EBC4F3004687A6 /* Tag.m */; };
 		BADDEAEF16EBC528004687A6 /* RecentPhoto+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = BADDEAEE16EBC528004687A6 /* RecentPhoto+Create.m */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,14 @@
 		330FBBEF16E98E1D000EA08C /* Tag+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Tag+Create.m"; path = "model/Tag+Create.m"; sourceTree = "<group>"; };
 		330FBBF116E99246000EA08C /* Photo+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Photo+Create.h"; path = "model/Photo+Create.h"; sourceTree = "<group>"; };
 		330FBBF216E99246000EA08C /* Photo+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Photo+Create.m"; path = "model/Photo+Create.m"; sourceTree = "<group>"; };
+		33462E0E16EC457F0048CC65 /* RecentPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecentPhoto.h; path = model/RecentPhoto.h; sourceTree = "<group>"; };
+		33462E0F16EC457F0048CC65 /* RecentPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecentPhoto.m; path = model/RecentPhoto.m; sourceTree = "<group>"; };
+		33462E1216EC457F0048CC65 /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tag.h; path = model/Tag.h; sourceTree = "<group>"; };
+		33462E1316EC457F0048CC65 /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tag.m; path = model/Tag.m; sourceTree = "<group>"; };
+		33462E1816EC48C40048CC65 /* NSString+FetchedGroupByString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FetchedGroupByString.h"; sourceTree = "<group>"; };
+		33462E1916EC48C50048CC65 /* NSString+FetchedGroupByString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FetchedGroupByString.m"; sourceTree = "<group>"; };
+		33462E1B16EC55320048CC65 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = model/Photo.h; sourceTree = "<group>"; };
+		33462E1C16EC55320048CC65 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = model/Photo.m; sourceTree = "<group>"; };
 		33AD3AF516EA8945000E2C9B /* TagTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagTVC.h; sourceTree = "<group>"; };
 		33AD3AF616EA8945000E2C9B /* TagTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagTVC.m; sourceTree = "<group>"; };
 		33AD3AF816EA8B8D000E2C9B /* StanfordTagTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StanfordTagTVC.h; sourceTree = "<group>"; };
@@ -95,12 +104,6 @@
 		33BE832316EB97AC009DAD59 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
 		BADDEAC316EBB56B004687A6 /* TagPhotoListTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagPhotoListTVC.h; sourceTree = "<group>"; };
 		BADDEAC416EBB56B004687A6 /* TagPhotoListTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagPhotoListTVC.m; sourceTree = "<group>"; };
-		BADDEAE416EBC4F2004687A6 /* RecentPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecentPhoto.h; path = model/RecentPhoto.h; sourceTree = "<group>"; };
-		BADDEAE516EBC4F2004687A6 /* RecentPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecentPhoto.m; path = model/RecentPhoto.m; sourceTree = "<group>"; };
-		BADDEAE716EBC4F2004687A6 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = model/Photo.h; sourceTree = "<group>"; };
-		BADDEAE816EBC4F2004687A6 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = model/Photo.m; sourceTree = "<group>"; };
-		BADDEAEA16EBC4F3004687A6 /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tag.h; path = model/Tag.h; sourceTree = "<group>"; };
-		BADDEAEB16EBC4F3004687A6 /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tag.m; path = model/Tag.m; sourceTree = "<group>"; };
 		BADDEAED16EBC528004687A6 /* RecentPhoto+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RecentPhoto+Create.h"; path = "model/RecentPhoto+Create.h"; sourceTree = "<group>"; };
 		BADDEAEE16EBC528004687A6 /* RecentPhoto+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RecentPhoto+Create.m"; path = "model/RecentPhoto+Create.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -206,6 +209,8 @@
 				33AD3B1116EADA39000E2C9B /* RecentPhotosTVC.m */,
 				33AD3AFE16EAD30A000E2C9B /* ImageViewController.h */,
 				33AD3AFF16EAD30A000E2C9B /* ImageViewController.m */,
+				33462E1816EC48C40048CC65 /* NSString+FetchedGroupByString.h */,
+				33462E1916EC48C50048CC65 /* NSString+FetchedGroupByString.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -245,15 +250,15 @@
 		33AD3B2716EB91FF000E2C9B /* core data */ = {
 			isa = PBXGroup;
 			children = (
+				33462E1B16EC55320048CC65 /* Photo.h */,
+				33462E1C16EC55320048CC65 /* Photo.m */,
 				330FBBAC16E96D80000EA08C /* Model.xcdatamodeld */,
-				BADDEAEA16EBC4F3004687A6 /* Tag.h */,
-				BADDEAEB16EBC4F3004687A6 /* Tag.m */,
-				BADDEAE716EBC4F2004687A6 /* Photo.h */,
-				BADDEAE816EBC4F2004687A6 /* Photo.m */,
+				33462E1216EC457F0048CC65 /* Tag.h */,
+				33462E1316EC457F0048CC65 /* Tag.m */,
+				33462E0E16EC457F0048CC65 /* RecentPhoto.h */,
+				33462E0F16EC457F0048CC65 /* RecentPhoto.m */,
 				330FBBF116E99246000EA08C /* Photo+Create.h */,
 				330FBBF216E99246000EA08C /* Photo+Create.m */,
-				BADDEAE416EBC4F2004687A6 /* RecentPhoto.h */,
-				BADDEAE516EBC4F2004687A6 /* RecentPhoto.m */,
 				BADDEAED16EBC528004687A6 /* RecentPhoto+Create.h */,
 				BADDEAEE16EBC528004687A6 /* RecentPhoto+Create.m */,
 				330FBBEE16E98E1D000EA08C /* Tag+Create.h */,
@@ -377,10 +382,11 @@
 				33AD3B1216EADA39000E2C9B /* RecentPhotosTVC.m in Sources */,
 				33BE832416EB97AC009DAD59 /* CoreDataTableViewController.m in Sources */,
 				BADDEAC516EBB56B004687A6 /* TagPhotoListTVC.m in Sources */,
-				BADDEAE616EBC4F2004687A6 /* RecentPhoto.m in Sources */,
-				BADDEAE916EBC4F2004687A6 /* Photo.m in Sources */,
-				BADDEAEC16EBC4F3004687A6 /* Tag.m in Sources */,
 				BADDEAEF16EBC528004687A6 /* RecentPhoto+Create.m in Sources */,
+				33462E1016EC457F0048CC65 /* RecentPhoto.m in Sources */,
+				33462E1416EC457F0048CC65 /* Tag.m in Sources */,
+				33462E1A16EC48C50048CC65 /* NSString+FetchedGroupByString.m in Sources */,
+				33462E1D16EC55320048CC65 /* Photo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

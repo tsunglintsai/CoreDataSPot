@@ -18,12 +18,9 @@
      inManagedObjectContext:(NSManagedObjectContext *)context{
     Photo *photo = nil;
     
-    NSNumberFormatter *f = [[NSNumberFormatter alloc]init];
-    [f setNumberStyle:NSNumberFormatterNoStyle];
-    
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"photoId" ascending:YES ]];
-    request.predicate = [NSPredicate predicateWithFormat:@"photoId = %@", [f numberFromString:[flickrPhoto valueForKeyPath:FLICKR_PHOTO_ID]]];
+    request.predicate = [NSPredicate predicateWithFormat:@"photoId = %@", [flickrPhoto valueForKeyPath:FLICKR_PHOTO_ID]];
     NSError *error;
     NSArray *matches = [context executeFetchRequest:request error:&error];
     if (!matches || ([matches count] > 1)) {
@@ -36,7 +33,8 @@
         photo.imageMURL = [[FlickrFetcher urlForPhoto:flickrPhoto format:FlickrPhotoFormatLarge]    absoluteString];
         photo.imageHURL = [[FlickrFetcher urlForPhoto:flickrPhoto format:FlickrPhotoFormatOriginal] absoluteString];
         photo.imageSURL = [[FlickrFetcher urlForPhoto:flickrPhoto format:FlickrPhotoFormatSquare]   absoluteString];
-        photo.photoId   = [f numberFromString:[flickrPhoto valueForKeyPath:FLICKR_PHOTO_ID]];
+        photo.photoId   = [flickrPhoto valueForKeyPath:FLICKR_PHOTO_ID];
+        photo.isSoftDeleted = @(NO);
         // assigne photo to tags
         NSArray *tags = [[flickrPhoto valueForKeyPath:FLICKR_TAGS] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         for( NSString *tagString in tags){
@@ -45,6 +43,10 @@
                 [photo addTagsObject:tag];
             }
         }
+        //
+        Tag *tag = [Tag tagWithName:@"All" inManagedObjectContext:context];
+        [photo addTagsObject:tag];
+        
     } else {
         photo = [matches lastObject];
         //NSLog(@"found photo entry in database");

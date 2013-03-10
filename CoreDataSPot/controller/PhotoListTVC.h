@@ -15,4 +15,5 @@
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) NSPredicate *photoListPredicate; // predicate to filter photo needed
 @property (nonatomic, strong) NSArray *sortDescriptors; // array of NSSortDescriptor describing how photo been sorted
+@property (nonatomic, strong) NSString *sectionKeyPath;
 @end

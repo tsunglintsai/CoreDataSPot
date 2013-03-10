@@ -32,12 +32,10 @@
     return @"title.stringGroupByFirstInitial";
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // If row is deleted, remove it from the list.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     if (editingStyle == UITableViewCellEditingStyleDelete){
         Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        [self.managedObjectContext performBlock:^{
+        [self.managedObjectContext performBlock:^{ // perform soft delete
             photo.isSoftDeleted = @(YES);
         }];
     }
@@ -60,9 +58,7 @@
     [self performFetch];    
 }
 
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString*)searchString searchScope:(NSInteger)searchOption {
-    NSLog(@"shouldReloadTableForSearchString");
-    
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString*)searchString searchScope:(NSInteger)searchOption {    
     NSPredicate *predicate = nil;
     if ([searchString length]){
         if (searchOption == 0){ // full text, in my implementation.  Other scope button titles are "Author", "Title"

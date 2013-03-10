@@ -256,9 +256,9 @@
 		33AD3B2716EB91FF000E2C9B /* core data */ = {
 			isa = PBXGroup;
 			children = (
+				330FBBAC16E96D80000EA08C /* Model.xcdatamodeld */,
 				33462E1B16EC55320048CC65 /* Photo.h */,
 				33462E1C16EC55320048CC65 /* Photo.m */,
-				330FBBAC16E96D80000EA08C /* Model.xcdatamodeld */,
 				33462E1216EC457F0048CC65 /* Tag.h */,
 				33462E1316EC457F0048CC65 /* Tag.m */,
 				33462E0E16EC457F0048CC65 /* RecentPhoto.h */,

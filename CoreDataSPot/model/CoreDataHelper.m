@@ -32,7 +32,6 @@
     }else{ // if document is not open then open it or create it
         NSURL *docURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
         docURL = [docURL URLByAppendingPathComponent:@"core data"];
-        
         self.document = [[MyUIManagedDocument alloc] initWithFileURL:docURL];
         if([[NSFileManager defaultManager] fileExistsAtPath:[docURL path]]){
             //NSLog(@"found dataDocument");

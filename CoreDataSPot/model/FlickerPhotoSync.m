@@ -31,11 +31,10 @@
 
 +(void) syncWithCompletionHandler:(PhotoSyncCallBackBlock)block{
     // get flicker photo from internet
+    NSArray *photoList = [FlickrFetcher stanfordPhotos];
     [[CoreDataHelper sharedInstance]executeBlock:^(NSManagedObjectContext *context) {
         [context performBlockAndWait:^{
-            NSNumberFormatter *f = [[NSNumberFormatter alloc]init];
-            [f setNumberStyle:NSNumberFormatterNoStyle];
-            for( id photoData in [FlickrFetcher stanfordPhotos]){
+            for( id photoData in photoList){
                 if([photoData isKindOfClass:[NSDictionary class]]){
                     [Photo photoFlickrPhoto:photoData inManagedObjectContext:context];
                 }

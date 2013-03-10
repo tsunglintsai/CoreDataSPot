@@ -57,7 +57,6 @@ typedef void (^LoadDataCallBackBlock)(void);
         dispatch_async(dispatch_queue_create("edu.stanford", DISPATCH_QUEUE_SERIAL), ^{
             [FlickerPhotoSync syncWithCompletionHandler:^{
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    //update the table view's Model to the new data, reloadData if necessary // and let the user know the refresh is over (stop spinner)
                     [self.refreshControl endRefreshing];
                     [self hideBusyIndicator];
                     self.isReloading = NO;

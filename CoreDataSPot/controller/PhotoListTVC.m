@@ -10,6 +10,7 @@
 #import "Photo.h"
 #import "CoreDataHelper.h"
 #import "RecentPhoto+Create.h"
+#import "PhotoCell.h"
 
 @interface PhotoListTVC ()
 
@@ -46,19 +47,19 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Flickr Photo";
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    PhotoCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath];
     // Configure the cell...
     cell.textLabel.text = photo.title;
     cell.detailTextLabel.text = photo.subtitle;
-    cell.tag = [photo.photoId intValue];
+    cell.photoId = photo.photoId;
     cell.imageView.image = [UIImage imageNamed:@"placeholder.png"]; //set it empty, or it will show resued cell image.
     if(!photo.thumbnail){ // if haven't downloaded thumbnail, then download it
         dispatch_async(dispatch_queue_create("edu.stanford", DISPATCH_QUEUE_SERIAL), ^{
             NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:photo.imageSURL]];
             [self.managedObjectContext performBlock:^{
                 photo.thumbnail = imageData;
-                if(cell.tag == [photo.photoId intValue]){ // if it doesn't match means cell got reused for other photo
+                if(cell.photoId == photo.photoId){ // if it doesn't match means cell got reused for other photo
                     dispatch_async(dispatch_get_main_queue(), ^{
                         cell.imageView.image = [UIImage imageWithData:photo.thumbnail];
                     });

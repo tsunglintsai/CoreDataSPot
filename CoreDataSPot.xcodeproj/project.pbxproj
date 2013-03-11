@@ -26,6 +26,7 @@
 		330FBBED16E989F7000EA08C /* FlickerPhotoSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 330FBBEC16E989F7000EA08C /* FlickerPhotoSync.m */; };
 		330FBBF016E98E1D000EA08C /* Tag+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 330FBBEF16E98E1D000EA08C /* Tag+Create.m */; };
 		330FBBF316E99247000EA08C /* Photo+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 330FBBF216E99246000EA08C /* Photo+Create.m */; };
+		333F3F4C16EE3D020063EDE6 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 333F3F4B16EE3D020063EDE6 /* PhotoCell.m */; };
 		33462E1016EC457F0048CC65 /* RecentPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 33462E0F16EC457F0048CC65 /* RecentPhoto.m */; };
 		33462E1416EC457F0048CC65 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 33462E1316EC457F0048CC65 /* Tag.m */; };
 		33462E1A16EC48C50048CC65 /* NSString+FetchedGroupByString.m in Sources */ = {isa = PBXBuildFile; fileRef = 33462E1916EC48C50048CC65 /* NSString+FetchedGroupByString.m */; };
@@ -78,6 +79,8 @@
 		330FBBEF16E98E1D000EA08C /* Tag+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Tag+Create.m"; path = "model/Tag+Create.m"; sourceTree = "<group>"; };
 		330FBBF116E99246000EA08C /* Photo+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Photo+Create.h"; path = "model/Photo+Create.h"; sourceTree = "<group>"; };
 		330FBBF216E99246000EA08C /* Photo+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Photo+Create.m"; path = "model/Photo+Create.m"; sourceTree = "<group>"; };
+		333F3F4A16EE3D020063EDE6 /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCell.h; sourceTree = "<group>"; };
+		333F3F4B16EE3D020063EDE6 /* PhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCell.m; sourceTree = "<group>"; };
 		33462E0E16EC457F0048CC65 /* RecentPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecentPhoto.h; path = model/RecentPhoto.h; sourceTree = "<group>"; };
 		33462E0F16EC457F0048CC65 /* RecentPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecentPhoto.m; path = model/RecentPhoto.m; sourceTree = "<group>"; };
 		33462E1216EC457F0048CC65 /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tag.h; path = model/Tag.h; sourceTree = "<group>"; };
@@ -190,6 +193,8 @@
 		330FBBA116E96C64000EA08C /* view */ = {
 			isa = PBXGroup;
 			children = (
+				333F3F4A16EE3D020063EDE6 /* PhotoCell.h */,
+				333F3F4B16EE3D020063EDE6 /* PhotoCell.m */,
 				330FBBAA16E96D63000EA08C /* StoryboardiPhone.storyboard */,
 				33A8E58316EC7454008DB85D /* StoryboardiPad.storyboard */,
 			);
@@ -397,6 +402,7 @@
 				33462E1A16EC48C50048CC65 /* NSString+FetchedGroupByString.m in Sources */,
 				33462E1D16EC55320048CC65 /* Photo.m in Sources */,
 				33A8E59016EC7914008DB85D /* MyUIManagedDocument.m in Sources */,
+				333F3F4C16EE3D020063EDE6 /* PhotoCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

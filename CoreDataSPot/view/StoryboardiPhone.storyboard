@@ -21,7 +21,7 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Flickr Photo" textLabel="tDc-2i-faC" detailTextLabel="JN0-S1-fi5" imageView="O1D-LZ-Hcl" style="IBUITableViewCellStyleSubtitle" id="bpk-tV-Vdn">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Flickr Photo" textLabel="tDc-2i-faC" detailTextLabel="JN0-S1-fi5" imageView="O1D-LZ-Hcl" style="IBUITableViewCellStyleSubtitle" id="bpk-tV-Vdn" customClass="PhotoCell">
                                 <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -156,7 +156,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Flickr Photo" textLabel="K9u-80-I1O" detailTextLabel="91f-Nd-0aO" imageView="1FV-A2-dCy" style="IBUITableViewCellStyleSubtitle" id="eCS-ES-TwZ">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Flickr Photo" textLabel="K9u-80-I1O" detailTextLabel="91f-Nd-0aO" imageView="1FV-A2-dCy" style="IBUITableViewCellStyleSubtitle" id="eCS-ES-TwZ" customClass="PhotoCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -296,6 +296,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="JGL-CC-NTj"/>
+        <segue reference="Rt7-SJ-YQq"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -23,6 +23,6 @@
     }];
 }
 - (NSString*) sectionKeyPath{
-    return @"title.stringGroupByFirstInitial";
+    return nil;
 }
 @end

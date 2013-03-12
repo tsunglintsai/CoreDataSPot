@@ -45,7 +45,7 @@
     // remove those photo are soft deleted
     NSMutableArray *tmpArray = [recenPhotoList mutableCopy];
     for(RecentPhoto *recentPhoto in recenPhotoList){
-        if(recentPhoto.photo.isSoftDeleted == @(YES)){
+        if([recentPhoto.photo.isSoftDeleted boolValue]){
             [tmpArray removeObject:recentPhoto];
             [context deleteObject:recentPhoto];            
         }

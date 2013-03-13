@@ -13,5 +13,5 @@
 typedef void (^PhotoSyncCallBackBlock)(void);
 
 +(id) sharedInstance;
-+(void) syncWithCompletionHandler:(PhotoSyncCallBackBlock)block;
++(void) syncWithCompletionHandler:(PhotoSyncCallBackBlock)block inMnagedContext:(NSManagedObjectContext*)context;
 @end

@@ -40,10 +40,7 @@
 }
 
 - (NSArray*) sortDescriptors{
-    if(!_sortDescriptors){
-        _sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
-    }
-    return _sortDescriptors;
+    return  @[[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
 }
 
 // loads up a table view cell with the title and owner of the photo at the given row in the Model
@@ -109,7 +106,6 @@
                     [self transferSplitViewBarButtonItemToViewController:segue.destinationViewController];
                     Photo *photo = [self getPhotoFromEntity:[self.fetchedResultsController objectAtIndexPath:indexPath]];
                     [self.managedObjectContext performBlockAndWait:^{
-                        NSLog(@"%@",self.managedObjectContext);
                         [RecentPhoto addPhoto:photo inManagedObjectContext:self.managedObjectContext];
                         NSError *error;
                         [self.managedObjectContext save:&error];

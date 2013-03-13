@@ -29,31 +29,20 @@
     return sharedInstance;
 }
 
-+(void) syncWithCompletionHandler:(PhotoSyncCallBackBlock)block{
++(void) syncWithCompletionHandler:(PhotoSyncCallBackBlock)block inMnagedContext:(NSManagedObjectContext*)context{
     // get flicker photo from internet
     NSArray *photoList = [FlickrFetcher stanfordPhotos];
-    [[CoreDataHelper sharedInstance]executeBlock:^(NSManagedObjectContext *context) {
-        [context performBlockAndWait:^{
-            for( id photoData in photoList){
-                if([photoData isKindOfClass:[NSDictionary class]]){
-                    [Photo photoFlickrPhoto:photoData inManagedObjectContext:context];
-                }
+    [context performBlockAndWait:^{
+        for( id photoData in photoList){
+            if([photoData isKindOfClass:[NSDictionary class]]){
+                [Photo photoFlickrPhoto:photoData inManagedObjectContext:context];
             }
-            NSError *error;
-            [context save:&error];
-            if(error)NSLog(@"%@",error);
-        }];
-        
-        //block();
-        
-        [context performBlockAndWait:^{ // somehow without close and reopen document, all tag photo list show empty
-            [[CoreDataHelper sharedInstance]closeDocument:^(NSManagedObjectContext *context) {
-                [[CoreDataHelper sharedInstance]executeBlock:^(NSManagedObjectContext *context) {
-                    block();
-                }];
-            }];
-        }];
+        }
+        NSError *error;
+        [context save:&error];
+        if(error)NSLog(@"%@",error);
     }];
+    block();
 }
 
 

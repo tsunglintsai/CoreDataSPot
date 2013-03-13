@@ -51,7 +51,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     if (editingStyle == UITableViewCellEditingStyleDelete){
         Photo *photo = [self getPhotoFromEntity:[self.fetchedResultsController objectAtIndexPath:indexPath]];
-        [self.managedObjectContext performBlock:^{ // perform soft delete
+        [self.managedObjectContext performBlock:^{ 
             [Photo deletePhotoFlickrPhoto:photo inManagedObjectContext:self.managedObjectContext];
             NSError *error;
             [self.managedObjectContext save:&error];

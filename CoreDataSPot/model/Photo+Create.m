@@ -20,7 +20,6 @@
      inManagedObjectContext:(NSManagedObjectContext *)context{
     Photo *photo = nil;
     NSString *photoId = [flickrPhoto valueForKeyPath:FLICKR_PHOTO_ID];
-    NSLog(@"deleted photo list:%@",[PhotoDeleted deletedPhotoIdListInManagedObjectContext:context]);
     if(![[PhotoDeleted deletedPhotoIdListInManagedObjectContext:context]containsObject:photoId]){ // if it's deleted , dont create it again.
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
         request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"photoId" ascending:YES ]];
@@ -44,7 +43,6 @@
                 if(![INVALID_TAGS containsObject:tagString]){ // remove those tags
                     Tag *tag = [Tag tagWithName:tagString inManagedObjectContext:context];
                     [photo addTagsObject:tag];
-                    
                     [PhotoTagMap PhotoTagMapWithPhoto:photo withTag:tag inManagedObjectContext:context];
                 }
             }

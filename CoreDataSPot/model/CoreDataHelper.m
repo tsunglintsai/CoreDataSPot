@@ -58,14 +58,11 @@
     }
 }
 
--(id)init{
-    self = [super init];
-    if(self){
-    }
-    return self;
+- (void) closeDocument:(completion_block_t)completionBlock{
+    [self.document closeWithCompletionHandler:^(BOOL success) {
+        completionBlock(nil);
+    }];
 }
-
-
 
 
 @end

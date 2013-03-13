@@ -7,8 +7,11 @@
 //
 
 #import "TagTVC.h"
-#import "Tag.h"
+#import "Tag+Create.h"
 #import "Photo.h"
+#import "NSString+FetchedGroupByString.h"
+#import "Photo+Create.h"
+#import "PhotoTagMap.h"
 
 @interface TagTVC ()
 @end
@@ -36,7 +39,7 @@
     static NSString *CellIdentifier = @"TagCell";
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     Tag *tag = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [tag.tagName capitalizedString];
+    cell.textLabel.text = [tag.tagName isEqualToString:ALL_PHOTO_TAG_NAME] ? @"All" : [tag.tagName capitalizedString];
     NSUInteger photoCount = [self photoCount:[tag.photos allObjects]];
     cell.detailTextLabel.text = [@[ @(photoCount) , photoCount > 1 ? @"photos":@"photo"] componentsJoinedByString:@" "];
     return cell;
@@ -58,7 +61,7 @@
             if ([segue.identifier isEqualToString:@"Push To Photo List"]) {
                 if ([segue.destinationViewController respondsToSelector:@selector(setTag:)]) {
                     Tag *tag = [self.fetchedResultsController objectAtIndexPath:indexPath];
-                    [segue.destinationViewController performSelector:@selector(setTag:) withObject:tag];
+                    [segue.destinationViewController performSelector:@selector(setSelectedTag:) withObject:tag];
                 }
                 if ([segue.destinationViewController respondsToSelector:@selector(setManagedObjectContext:)]) {
                     [segue.destinationViewController performSelector:@selector(setManagedObjectContext:) withObject:self.managedObjectContext];
@@ -67,4 +70,5 @@
         }
     }
 }
+
 @end

@@ -48,8 +48,7 @@
 
 // loads up a table view cell with the title and owner of the photo at the given row in the Model
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *CellIdentifier = @"Flickr Photo";
     PhotoCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     Photo *photo = [self getPhotoFromEntity:[self.fetchedResultsController objectAtIndexPath:indexPath]];
@@ -110,11 +109,11 @@
                     [self transferSplitViewBarButtonItemToViewController:segue.destinationViewController];
                     Photo *photo = [self getPhotoFromEntity:[self.fetchedResultsController objectAtIndexPath:indexPath]];
                     [self.managedObjectContext performBlockAndWait:^{
-                        RecentPhoto *recentPhoto = [RecentPhoto addPhoto:photo inManagedObjectContext:self.managedObjectContext];
-                        NSLog(@"%@",recentPhoto);
-                        [self.managedObjectContext save:nil];
-                        [self performFetch];
-                        [self.tableView reloadData];
+                        NSLog(@"%@",self.managedObjectContext);
+                        [RecentPhoto addPhoto:photo inManagedObjectContext:self.managedObjectContext];
+                        NSError *error;
+                        [self.managedObjectContext save:&error];
+                        if(error) NSLog(@"%@",error);
                     }];
                     // make a switch between ipad and iphone
                     NSURL *url = [NSURL URLWithString: self.view.window.bounds.size.width > 500 ? photo.imageHURL : photo.imageMURL];
@@ -125,11 +124,5 @@
         }
     }
 }
-
--(void)markDirty{
-    [self willChangeValueForKey:@"photo"];
-    [self didChangeValueForKey:@"photo"];
-}
-
 
 @end

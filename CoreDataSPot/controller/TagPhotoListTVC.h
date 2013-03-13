@@ -10,5 +10,5 @@
 #import "Tag.h"
 
 @interface TagPhotoListTVC : PhotoListTVC
-@property (nonatomic, strong) Tag *tag;
+@property (nonatomic, strong) Tag *selectedTag;
 @end

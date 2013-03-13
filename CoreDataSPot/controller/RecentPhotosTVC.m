@@ -20,8 +20,10 @@
     self.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"recent.orderNumber" ascending:YES]];
     [[CoreDataHelper sharedInstance]executeBlock:^(NSManagedObjectContext *context) {
         self.managedObjectContext = context;
+        [self performFetch];
     }];
 }
+
 - (NSString*) sectionKeyPath{
     return nil;
 }

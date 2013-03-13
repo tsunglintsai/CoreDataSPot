@@ -14,4 +14,6 @@ typedef void (^completion_block_t)(NSManagedObjectContext *context);
 
 +(id) sharedInstance;
 - (void) executeBlock:(completion_block_t)completionBlock;
+- (void) closeDocument:(completion_block_t)completionBlock;
+
 @end

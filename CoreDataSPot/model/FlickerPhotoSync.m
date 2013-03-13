@@ -39,9 +39,19 @@
                     [Photo photoFlickrPhoto:photoData inManagedObjectContext:context];
                 }
             }
-            [context save:nil];
+            NSError *error;
+            [context save:&error];
+            if(error)NSLog(@"%@",error);
         }];
+        
         block();
+        [context performBlockAndWait:^{ // somehow without close and reopen document, all tag photo list show empty
+            [[CoreDataHelper sharedInstance]closeDocument:^(NSManagedObjectContext *context) {
+                [[CoreDataHelper sharedInstance]executeBlock:^(NSManagedObjectContext *context) {
+                    block();
+                }];
+            }];
+        }];
     }];
 }
 

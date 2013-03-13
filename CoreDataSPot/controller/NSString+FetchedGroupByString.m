@@ -7,6 +7,7 @@
 //
 
 #import "NSString+FetchedGroupByString.h"
+#import "Photo+Create.h"
 
 @implementation NSString (FetchedGroupByString)
 - (NSString *)stringGroupByFirstInitial {
@@ -14,4 +15,5 @@
         return self;
     return [self substringToIndex:1];
 }
+
 @end

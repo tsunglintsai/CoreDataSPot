@@ -8,7 +8,7 @@
 
 #import "Photo.h"
 
-#define ALL_PHOTO_TAG_NAME @"All"
+#define ALL_PHOTO_TAG_NAME @" ^,,^ "// make up some characters that will always stay on top of list
 
 @interface Photo (Create)
 + (Photo *)photoFlickrPhoto:(NSDictionary *)flickrPhoto

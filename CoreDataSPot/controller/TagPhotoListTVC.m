@@ -10,6 +10,8 @@
 #import "Photo.h"
 #import "Photo+Create.h"
 #import "PhotoTagMap.h"
+#import "PhotoTagMap+Create.h"
+#import "CoreDataHelper.h"
 
 @interface TagPhotoListTVC ()
 
@@ -19,30 +21,31 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    self.navigationItem.title = [self.selectedTag.tagName isEqualToString:ALL_PHOTO_TAG_NAME] ? @"All" : [self.selectedTag.tagName capitalizedString];
 }
 
 - (NSPredicate*)photoListPredicate{
-    return [self.tag.tagName isEqualToString:ALL_PHOTO_TAG_NAME] ?
-    [NSPredicate predicateWithFormat:@"photo != nil"] :
-    [NSPredicate predicateWithFormat:@"tags.tagName CONTAINS %@", self.tag.tagName] ;
+    return [self.selectedTag.tagName isEqualToString:ALL_PHOTO_TAG_NAME] ?
+    [NSPredicate predicateWithFormat:nil] :
+    [NSPredicate predicateWithFormat:@"tags.tagName CONTAINS %@", self.selectedTag.tagName] ;
 }
 
 -(NSString*) entityName{
-    return [self.tag.tagName isEqualToString:ALL_PHOTO_TAG_NAME] ? @"PhotoTagMap" : @"Photo";
+    return [self.selectedTag.tagName isEqualToString:ALL_PHOTO_TAG_NAME] ? @"PhotoTagMap" : @"Photo";
 }
 
 - (NSArray*) sortDescriptors{
-    return [self.tag.tagName isEqualToString:ALL_PHOTO_TAG_NAME] ?
+    return [self.selectedTag.tagName isEqualToString:ALL_PHOTO_TAG_NAME] ?
     @[[NSSortDescriptor sortDescriptorWithKey:@"tag.tagName" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]] :
     @[[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]] ;
 }
 
-- (void)setTag:(Tag *)tag{
-    _tag = tag;
+- (void)setTag:(Tag *)selectedTag{
+    _selectedTag = selectedTag;
 }
 
 - (NSString*) sectionKeyPath{
-    return [self.tag.tagName isEqualToString:ALL_PHOTO_TAG_NAME] ? @"tag.tagName" : @"title.stringGroupByFirstInitial";
+    return [self.selectedTag.tagName isEqualToString:ALL_PHOTO_TAG_NAME] ? @"tag.tagName" : @"title.stringGroupByFirstInitial";
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -60,9 +63,9 @@
 }
 
 -(NSPredicate*)searchPredicateWithSeachString:(NSString*)searchString{
-    return [self.tag.tagName isEqualToString:ALL_PHOTO_TAG_NAME] ?
+    return [self.selectedTag.tagName isEqualToString:ALL_PHOTO_TAG_NAME] ?
     [NSPredicate predicateWithFormat:@"(photo.subtitle CONTAINS[cd] %@) OR (photo.title contains[cd] %@)", searchString , searchString] :
-    [NSPredicate predicateWithFormat:@"(tags.tagName CONTAINS[cd] %@)  AND (title contains[cd] %@)", self.tag.tagName, searchString] ;
+    [NSPredicate predicateWithFormat:@"(tags.tagName CONTAINS[cd] %@)  AND (title contains[cd] %@)", self.selectedTag.tagName, searchString] ;
 }
 
 -(Photo*) getPhotoFromEntity:(NSManagedObject*)entity{
@@ -100,8 +103,9 @@
     }
     [self.fetchedResultsController.fetchRequest setPredicate:predicate];
     [self performFetch];
-    
+
     return YES;
 }
+
 
 @end

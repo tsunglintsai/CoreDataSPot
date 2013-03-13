@@ -60,6 +60,10 @@ typedef void (^LoadDataCallBackBlock)(void);
                     [self.refreshControl endRefreshing];
                     [self hideBusyIndicator];
                     self.isReloading = NO;
+                    [[CoreDataHelper sharedInstance] executeBlock:^(NSManagedObjectContext *context) {// very strange if i don't reopen document, recent photo list won't show up
+                        self.managedObjectContext = context;
+                    }];
+                    [self performFetch];
                 });
             }];
         });

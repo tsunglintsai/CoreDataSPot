@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="12C60" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C60" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Photo" representedClassName="Photo" syncable="YES">
         <attribute name="imageHURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageMURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageSURL" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="isSoftDeleted" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="photoId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="subtitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="thumbnail" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="recent" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="RecentPhoto" inverseName="photo" inverseEntity="RecentPhoto" syncable="YES"/>
+        <relationship name="photoTagMap" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PhotoTagMap" inverseName="photo" inverseEntity="PhotoTagMap" syncable="YES"/>
+        <relationship name="recent" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="RecentPhoto" inverseName="photo" inverseEntity="RecentPhoto" syncable="YES"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="photos" inverseEntity="Tag" syncable="YES"/>
+    </entity>
+    <entity name="PhotoDeleted" representedClassName="PhotoDeleted" syncable="YES">
+        <attribute name="photoId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="PhotoTagMap" representedClassName="PhotoTagMap" syncable="YES">
+        <relationship name="photo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="photoTagMap" inverseEntity="Photo" syncable="YES"/>
+        <relationship name="tag" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Tag" inverseName="photoTagMap" inverseEntity="Tag" syncable="YES"/>
     </entity>
     <entity name="RecentPhoto" representedClassName="RecentPhoto" syncable="YES">
         <attribute name="orderNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -19,10 +26,13 @@
     <entity name="Tag" representedClassName="Tag" syncable="YES">
         <attribute name="tagName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="tags" inverseEntity="Photo" syncable="YES"/>
+        <relationship name="photoTagMap" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PhotoTagMap" inverseName="tag" inverseEntity="PhotoTagMap" syncable="YES"/>
     </entity>
     <elements>
         <element name="Photo" positionX="160" positionY="192" width="128" height="195"/>
+        <element name="PhotoDeleted" positionX="160" positionY="192" width="128" height="60"/>
+        <element name="PhotoTagMap" positionX="160" positionY="192" width="128" height="75"/>
         <element name="RecentPhoto" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="Tag" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="Tag" positionX="160" positionY="192" width="128" height="90"/>
     </elements>
 </model>

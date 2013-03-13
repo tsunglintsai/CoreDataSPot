@@ -8,6 +8,8 @@
 
 #import "TagPhotoListTVC.h"
 #import "Photo.h"
+#import "Photo+Create.h"
+#import "PhotoTagMap.h"
 
 @interface TagPhotoListTVC ()
 
@@ -20,7 +22,19 @@
 }
 
 - (NSPredicate*)photoListPredicate{
-    return [NSPredicate predicateWithFormat:@"(tags.tagName CONTAINS %@) AND (isSoftDeleted == NO)", self.tag.tagName];
+    return [self.tag.tagName isEqualToString:ALL_PHOTO_TAG_NAME] ?
+    [NSPredicate predicateWithFormat:@"photo != nil"] :
+    [NSPredicate predicateWithFormat:@"tags.tagName CONTAINS %@", self.tag.tagName] ;
+}
+
+-(NSString*) entityName{
+    return [self.tag.tagName isEqualToString:ALL_PHOTO_TAG_NAME] ? @"PhotoTagMap" : @"Photo";
+}
+
+- (NSArray*) sortDescriptors{
+    return [self.tag.tagName isEqualToString:ALL_PHOTO_TAG_NAME] ?
+    @[[NSSortDescriptor sortDescriptorWithKey:@"tag.tagName" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]] :
+    @[[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]] ;
 }
 
 - (void)setTag:(Tag *)tag{
@@ -28,17 +42,38 @@
 }
 
 - (NSString*) sectionKeyPath{
-    
-    return @"title.stringGroupByFirstInitial";
+    return [self.tag.tagName isEqualToString:ALL_PHOTO_TAG_NAME] ? @"tag.tagName" : @"title.stringGroupByFirstInitial";
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     if (editingStyle == UITableViewCellEditingStyleDelete){
-        Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        Photo *photo = [self getPhotoFromEntity:[self.fetchedResultsController objectAtIndexPath:indexPath]];
         [self.managedObjectContext performBlock:^{ // perform soft delete
-            photo.isSoftDeleted = @(YES);
+            [Photo deletePhotoFlickrPhoto:photo inManagedObjectContext:self.managedObjectContext];
+            NSError *error;
+            [self.managedObjectContext save:&error];
+            if(error){
+                NSLog(@"%@",error);
+            }
         }];
     }
+}
+
+-(NSPredicate*)searchPredicateWithSeachString:(NSString*)searchString{
+    return [self.tag.tagName isEqualToString:ALL_PHOTO_TAG_NAME] ?
+    [NSPredicate predicateWithFormat:@"(photo.subtitle CONTAINS[cd] %@) OR (photo.title contains[cd] %@)", searchString , searchString] :
+    [NSPredicate predicateWithFormat:@"(tags.tagName CONTAINS[cd] %@)  AND (title contains[cd] %@)", self.tag.tagName, searchString] ;
+}
+
+-(Photo*) getPhotoFromEntity:(NSManagedObject*)entity{
+    Photo *result;
+    if([entity isKindOfClass:[Photo class]]){
+        result = (Photo*) entity;
+    }else if([entity isKindOfClass:[PhotoTagMap class]]){
+        PhotoTagMap *photoTagMap = (PhotoTagMap*)entity;
+        result = photoTagMap.photo;
+    }
+    return result;
 }
 
 #pragma mark - SearchViewControl Delegate
@@ -61,12 +96,7 @@
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString*)searchString searchScope:(NSInteger)searchOption {    
     NSPredicate *predicate = nil;
     if ([searchString length]){
-        if (searchOption == 0){ // full text, in my implementation.  Other scope button titles are "Author", "Title"
-            predicate = [NSPredicate predicateWithFormat:@"(tags.tagName CONTAINS %@) AND (isSoftDeleted == NO) AND (title contains[cd] %@)", self.tag.tagName, searchString];
-        } else {
-            // docs say keys are case insensitive, but apparently not so.
-            predicate =  [NSPredicate predicateWithFormat:@"(tags.tagName CONTAINS %@) AND (isSoftDeleted == NO)", self.tag.tagName];
-        }
+        predicate = [self searchPredicateWithSeachString:searchString];
     }
     [self.fetchedResultsController.fetchRequest setPredicate:predicate];
     [self performFetch];

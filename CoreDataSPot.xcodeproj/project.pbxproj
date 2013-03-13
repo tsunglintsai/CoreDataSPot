@@ -27,10 +27,8 @@
 		330FBBF016E98E1D000EA08C /* Tag+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 330FBBEF16E98E1D000EA08C /* Tag+Create.m */; };
 		330FBBF316E99247000EA08C /* Photo+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 330FBBF216E99246000EA08C /* Photo+Create.m */; };
 		333F3F4C16EE3D020063EDE6 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 333F3F4B16EE3D020063EDE6 /* PhotoCell.m */; };
-		33462E1016EC457F0048CC65 /* RecentPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 33462E0F16EC457F0048CC65 /* RecentPhoto.m */; };
-		33462E1416EC457F0048CC65 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 33462E1316EC457F0048CC65 /* Tag.m */; };
+		3343C5B616F01314008F7D9E /* PhotoTagMap+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 3343C5B516F01314008F7D9E /* PhotoTagMap+Create.m */; };
 		33462E1A16EC48C50048CC65 /* NSString+FetchedGroupByString.m in Sources */ = {isa = PBXBuildFile; fileRef = 33462E1916EC48C50048CC65 /* NSString+FetchedGroupByString.m */; };
-		33462E1D16EC55320048CC65 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 33462E1C16EC55320048CC65 /* Photo.m */; };
 		33A8E58416EC7454008DB85D /* StoryboardiPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33A8E58316EC7454008DB85D /* StoryboardiPad.storyboard */; };
 		33A8E59016EC7914008DB85D /* MyUIManagedDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A8E58F16EC7914008DB85D /* MyUIManagedDocument.m */; };
 		33AD3AF716EA8945000E2C9B /* TagTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 33AD3AF616EA8945000E2C9B /* TagTVC.m */; };
@@ -43,6 +41,12 @@
 		33AD3B1616EADC71000E2C9B /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 33AD3B1416EADC71000E2C9B /* placeholder.png */; };
 		33AD3B1716EADC71000E2C9B /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33AD3B1516EADC71000E2C9B /* placeholder@2x.png */; };
 		33BE832416EB97AC009DAD59 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BE832316EB97AC009DAD59 /* CoreDataTableViewController.m */; };
+		BA57407816F0352000149634 /* PhotoDeleted+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = BA57407716F0352000149634 /* PhotoDeleted+Create.m */; };
+		BA57407B16F0364800149634 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = BA57407A16F0364800149634 /* Photo.m */; };
+		BA57407E16F0364900149634 /* RecentPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = BA57407D16F0364900149634 /* RecentPhoto.m */; };
+		BA57408116F0364A00149634 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = BA57408016F0364A00149634 /* Tag.m */; };
+		BA57408416F0364B00149634 /* PhotoTagMap.m in Sources */ = {isa = PBXBuildFile; fileRef = BA57408316F0364B00149634 /* PhotoTagMap.m */; };
+		BA57408716F0364B00149634 /* PhotoDeleted.m in Sources */ = {isa = PBXBuildFile; fileRef = BA57408616F0364B00149634 /* PhotoDeleted.m */; };
 		BADDEAC516EBB56B004687A6 /* TagPhotoListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BADDEAC416EBB56B004687A6 /* TagPhotoListTVC.m */; };
 		BADDEAEF16EBC528004687A6 /* RecentPhoto+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = BADDEAEE16EBC528004687A6 /* RecentPhoto+Create.m */; };
 /* End PBXBuildFile section */
@@ -81,14 +85,10 @@
 		330FBBF216E99246000EA08C /* Photo+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Photo+Create.m"; path = "model/Photo+Create.m"; sourceTree = "<group>"; };
 		333F3F4A16EE3D020063EDE6 /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCell.h; sourceTree = "<group>"; };
 		333F3F4B16EE3D020063EDE6 /* PhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCell.m; sourceTree = "<group>"; };
-		33462E0E16EC457F0048CC65 /* RecentPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecentPhoto.h; path = model/RecentPhoto.h; sourceTree = "<group>"; };
-		33462E0F16EC457F0048CC65 /* RecentPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecentPhoto.m; path = model/RecentPhoto.m; sourceTree = "<group>"; };
-		33462E1216EC457F0048CC65 /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tag.h; path = model/Tag.h; sourceTree = "<group>"; };
-		33462E1316EC457F0048CC65 /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tag.m; path = model/Tag.m; sourceTree = "<group>"; };
+		3343C5B416F01313008F7D9E /* PhotoTagMap+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PhotoTagMap+Create.h"; path = "model/PhotoTagMap+Create.h"; sourceTree = "<group>"; };
+		3343C5B516F01314008F7D9E /* PhotoTagMap+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PhotoTagMap+Create.m"; path = "model/PhotoTagMap+Create.m"; sourceTree = "<group>"; };
 		33462E1816EC48C40048CC65 /* NSString+FetchedGroupByString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FetchedGroupByString.h"; sourceTree = "<group>"; };
 		33462E1916EC48C50048CC65 /* NSString+FetchedGroupByString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FetchedGroupByString.m"; sourceTree = "<group>"; };
-		33462E1B16EC55320048CC65 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = model/Photo.h; sourceTree = "<group>"; };
-		33462E1C16EC55320048CC65 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = model/Photo.m; sourceTree = "<group>"; };
 		33A8E58316EC7454008DB85D /* StoryboardiPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StoryboardiPad.storyboard; sourceTree = "<group>"; };
 		33A8E58E16EC7914008DB85D /* MyUIManagedDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyUIManagedDocument.h; sourceTree = "<group>"; };
 		33A8E58F16EC7914008DB85D /* MyUIManagedDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyUIManagedDocument.m; sourceTree = "<group>"; };
@@ -110,6 +110,18 @@
 		33AD3B1516EADC71000E2C9B /* placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder@2x.png"; sourceTree = "<group>"; };
 		33BE832216EB97AC009DAD59 /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
 		33BE832316EB97AC009DAD59 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
+		BA57407616F0352000149634 /* PhotoDeleted+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PhotoDeleted+Create.h"; path = "model/PhotoDeleted+Create.h"; sourceTree = "<group>"; };
+		BA57407716F0352000149634 /* PhotoDeleted+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PhotoDeleted+Create.m"; path = "model/PhotoDeleted+Create.m"; sourceTree = "<group>"; };
+		BA57407916F0364700149634 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = model/Photo.h; sourceTree = "<group>"; };
+		BA57407A16F0364800149634 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = model/Photo.m; sourceTree = "<group>"; };
+		BA57407C16F0364800149634 /* RecentPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecentPhoto.h; path = model/RecentPhoto.h; sourceTree = "<group>"; };
+		BA57407D16F0364900149634 /* RecentPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecentPhoto.m; path = model/RecentPhoto.m; sourceTree = "<group>"; };
+		BA57407F16F0364A00149634 /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tag.h; path = model/Tag.h; sourceTree = "<group>"; };
+		BA57408016F0364A00149634 /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tag.m; path = model/Tag.m; sourceTree = "<group>"; };
+		BA57408216F0364A00149634 /* PhotoTagMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoTagMap.h; path = model/PhotoTagMap.h; sourceTree = "<group>"; };
+		BA57408316F0364B00149634 /* PhotoTagMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoTagMap.m; path = model/PhotoTagMap.m; sourceTree = "<group>"; };
+		BA57408516F0364B00149634 /* PhotoDeleted.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoDeleted.h; path = model/PhotoDeleted.h; sourceTree = "<group>"; };
+		BA57408616F0364B00149634 /* PhotoDeleted.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoDeleted.m; path = model/PhotoDeleted.m; sourceTree = "<group>"; };
 		BADDEAC316EBB56B004687A6 /* TagPhotoListTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagPhotoListTVC.h; sourceTree = "<group>"; };
 		BADDEAC416EBB56B004687A6 /* TagPhotoListTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagPhotoListTVC.m; sourceTree = "<group>"; };
 		BADDEAED16EBC528004687A6 /* RecentPhoto+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RecentPhoto+Create.h"; path = "model/RecentPhoto+Create.h"; sourceTree = "<group>"; };
@@ -262,18 +274,26 @@
 			isa = PBXGroup;
 			children = (
 				330FBBAC16E96D80000EA08C /* Model.xcdatamodeld */,
-				33462E1B16EC55320048CC65 /* Photo.h */,
-				33462E1C16EC55320048CC65 /* Photo.m */,
-				33462E1216EC457F0048CC65 /* Tag.h */,
-				33462E1316EC457F0048CC65 /* Tag.m */,
-				33462E0E16EC457F0048CC65 /* RecentPhoto.h */,
-				33462E0F16EC457F0048CC65 /* RecentPhoto.m */,
-				330FBBF116E99246000EA08C /* Photo+Create.h */,
-				330FBBF216E99246000EA08C /* Photo+Create.m */,
-				BADDEAED16EBC528004687A6 /* RecentPhoto+Create.h */,
-				BADDEAEE16EBC528004687A6 /* RecentPhoto+Create.m */,
+				BA57408516F0364B00149634 /* PhotoDeleted.h */,
+				BA57408616F0364B00149634 /* PhotoDeleted.m */,
+				BA57408216F0364A00149634 /* PhotoTagMap.h */,
+				BA57408316F0364B00149634 /* PhotoTagMap.m */,
+				BA57407F16F0364A00149634 /* Tag.h */,
+				BA57408016F0364A00149634 /* Tag.m */,
+				BA57407C16F0364800149634 /* RecentPhoto.h */,
+				BA57407D16F0364900149634 /* RecentPhoto.m */,
+				BA57407916F0364700149634 /* Photo.h */,
+				BA57407A16F0364800149634 /* Photo.m */,
+				BA57407616F0352000149634 /* PhotoDeleted+Create.h */,
+				BA57407716F0352000149634 /* PhotoDeleted+Create.m */,
 				330FBBEE16E98E1D000EA08C /* Tag+Create.h */,
 				330FBBEF16E98E1D000EA08C /* Tag+Create.m */,
+				BADDEAED16EBC528004687A6 /* RecentPhoto+Create.h */,
+				BADDEAEE16EBC528004687A6 /* RecentPhoto+Create.m */,
+				330FBBF116E99246000EA08C /* Photo+Create.h */,
+				330FBBF216E99246000EA08C /* Photo+Create.m */,
+				3343C5B416F01313008F7D9E /* PhotoTagMap+Create.h */,
+				3343C5B516F01314008F7D9E /* PhotoTagMap+Create.m */,
 				330FBBC616E9726A000EA08C /* CoreDataHelper.h */,
 				330FBBC716E9726A000EA08C /* CoreDataHelper.m */,
 				33A8E58E16EC7914008DB85D /* MyUIManagedDocument.h */,
@@ -397,12 +417,16 @@
 				33BE832416EB97AC009DAD59 /* CoreDataTableViewController.m in Sources */,
 				BADDEAC516EBB56B004687A6 /* TagPhotoListTVC.m in Sources */,
 				BADDEAEF16EBC528004687A6 /* RecentPhoto+Create.m in Sources */,
-				33462E1016EC457F0048CC65 /* RecentPhoto.m in Sources */,
-				33462E1416EC457F0048CC65 /* Tag.m in Sources */,
 				33462E1A16EC48C50048CC65 /* NSString+FetchedGroupByString.m in Sources */,
-				33462E1D16EC55320048CC65 /* Photo.m in Sources */,
 				33A8E59016EC7914008DB85D /* MyUIManagedDocument.m in Sources */,
 				333F3F4C16EE3D020063EDE6 /* PhotoCell.m in Sources */,
+				3343C5B616F01314008F7D9E /* PhotoTagMap+Create.m in Sources */,
+				BA57407816F0352000149634 /* PhotoDeleted+Create.m in Sources */,
+				BA57407B16F0364800149634 /* Photo.m in Sources */,
+				BA57407E16F0364900149634 /* RecentPhoto.m in Sources */,
+				BA57408116F0364A00149634 /* Tag.m in Sources */,
+				BA57408416F0364B00149634 /* PhotoTagMap.m in Sources */,
+				BA57408716F0364B00149634 /* PhotoDeleted.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

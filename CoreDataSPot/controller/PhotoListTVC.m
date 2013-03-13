@@ -26,13 +26,17 @@
 - (void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext{
     _managedObjectContext = managedObjectContext;
     if (managedObjectContext) {
-        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:self.entityName];
         request.sortDescriptors = self.sortDescriptors;
         request.predicate = self.photoListPredicate;
         self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:managedObjectContext sectionNameKeyPath:self.sectionKeyPath cacheName:nil];
     } else {
         self.fetchedResultsController = nil;
     }
+}
+
+-(NSString*) entityName{
+    return @"Photo";
 }
 
 - (NSArray*) sortDescriptors{
@@ -48,7 +52,7 @@
 {
     static NSString *CellIdentifier = @"Flickr Photo";
     PhotoCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Photo *photo = [self getPhotoFromEntity:[self.fetchedResultsController objectAtIndexPath:indexPath]];
     // Configure the cell...
     cell.textLabel.text = photo.title;
     cell.detailTextLabel.text = photo.subtitle;
@@ -73,6 +77,15 @@
     return cell;
 }
 
+-(Photo*) getPhotoFromEntity:(NSManagedObject*)entity{
+    Photo *result;
+    if([entity isKindOfClass:[Photo class]]){
+        result = (Photo*) entity;
+    }
+    return result;
+}
+
+
 #pragma mark - Segue
 
 // prepares for the "Show Image" segue by seeing if the destination view controller of the segue
@@ -95,11 +108,13 @@
             if ([segue.identifier isEqualToString:@"Show Image"]) {
                 if ([segue.destinationViewController respondsToSelector:@selector(setImageURL:)]) {
                     [self transferSplitViewBarButtonItemToViewController:segue.destinationViewController];
-                    Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath];
+                    Photo *photo = [self getPhotoFromEntity:[self.fetchedResultsController objectAtIndexPath:indexPath]];
                     [self.managedObjectContext performBlockAndWait:^{
                         RecentPhoto *recentPhoto = [RecentPhoto addPhoto:photo inManagedObjectContext:self.managedObjectContext];
                         NSLog(@"%@",recentPhoto);
                         [self.managedObjectContext save:nil];
+                        [self performFetch];
+                        [self.tableView reloadData];
                     }];
                     // make a switch between ipad and iphone
                     NSURL *url = [NSURL URLWithString: self.view.window.bounds.size.width > 500 ? photo.imageHURL : photo.imageMURL];
@@ -111,6 +126,10 @@
     }
 }
 
+-(void)markDirty{
+    [self willChangeValueForKey:@"photo"];
+    [self didChangeValueForKey:@"photo"];
+}
 
 
 @end

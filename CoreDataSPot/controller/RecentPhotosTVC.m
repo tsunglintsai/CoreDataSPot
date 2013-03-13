@@ -16,7 +16,7 @@
 @implementation RecentPhotosTVC
 -(void)viewDidLoad{
     [super viewDidLoad];
-    self.photoListPredicate = [NSPredicate predicateWithFormat:@"(recent != nil) AND (isSoftDeleted == NO)"];
+    self.photoListPredicate = [NSPredicate predicateWithFormat:@"recent != nil"];
     self.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"recent.orderNumber" ascending:YES]];
     [[CoreDataHelper sharedInstance]executeBlock:^(NSManagedObjectContext *context) {
         self.managedObjectContext = context;

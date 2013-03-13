@@ -43,13 +43,7 @@
 }
 
 - (NSUInteger) photoCount:(NSArray*) photoList{
-    NSUInteger result = 0 ;
-    for(Photo *photo in photoList){
-        if(![photo.isSoftDeleted boolValue]){
-            result++;
-        }
-    }
-    return result;
+    return [photoList count];
 }
 
 - (void) awakeFromNib{

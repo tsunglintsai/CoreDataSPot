@@ -1,5 +1,5 @@
 //
-//  RecentPhoto.h
+//  PhotoTagMap.h
 //  CoreDataSPot
 //
 //  Created by Henry on 3/12/13.
@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Photo;
+@class Photo, Tag;
 
-@interface RecentPhoto : NSManagedObject
+@interface PhotoTagMap : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * orderNumber;
 @property (nonatomic, retain) Photo *photo;
+@property (nonatomic, retain) Tag *tag;
 
 @end

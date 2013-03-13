@@ -1,5 +1,5 @@
 //
-//  RecentPhoto.h
+//  PhotoDeleted.h
 //  CoreDataSPot
 //
 //  Created by Henry on 3/12/13.
@@ -9,11 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Photo;
 
-@interface RecentPhoto : NSManagedObject
+@interface PhotoDeleted : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * orderNumber;
-@property (nonatomic, retain) Photo *photo;
+@property (nonatomic, retain) NSString * photoId;
 
 @end

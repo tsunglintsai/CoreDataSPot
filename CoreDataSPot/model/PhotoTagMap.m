@@ -1,18 +1,19 @@
 //
-//  RecentPhoto.m
+//  PhotoTagMap.m
 //  CoreDataSPot
 //
 //  Created by Henry on 3/12/13.
 //  Copyright (c) 2013 Pyrogusto. All rights reserved.
 //
 
-#import "RecentPhoto.h"
+#import "PhotoTagMap.h"
 #import "Photo.h"
+#import "Tag.h"
 
 
-@implementation RecentPhoto
+@implementation PhotoTagMap
 
-@dynamic orderNumber;
 @dynamic photo;
+@dynamic tag;
 
 @end

@@ -8,7 +8,12 @@
 
 #import "Photo.h"
 
+#define ALL_PHOTO_TAG_NAME @"All"
+
 @interface Photo (Create)
 + (Photo *)photoFlickrPhoto:(NSDictionary *)flickrPhoto
    inManagedObjectContext:(NSManagedObjectContext *)context;
+
++ (void)deletePhotoFlickrPhoto:(Photo*)flickrPhoto
+     inManagedObjectContext:(NSManagedObjectContext *)context;
 @end

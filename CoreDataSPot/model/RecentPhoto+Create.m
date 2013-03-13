@@ -8,6 +8,7 @@
 
 #import "RecentPhoto+Create.h"
 #import "Photo.h"
+#import "PhotoDeleted+Create.h"
 
 #define MAX_RECENT_PHOTO_COUNT 5
 
@@ -42,15 +43,6 @@
     recentPhoto.photo = photo;
     recentPhoto.orderNumber = @(1);
     [recenPhotoList insertObject:recentPhoto atIndex:0];
-    // remove those photo are soft deleted
-    NSMutableArray *tmpArray = [recenPhotoList mutableCopy];
-    for(RecentPhoto *recentPhoto in recenPhotoList){
-        if([recentPhoto.photo.isSoftDeleted boolValue]){
-            [tmpArray removeObject:recentPhoto];
-            [context deleteObject:recentPhoto];            
-        }
-    }
-    recenPhotoList = tmpArray;
     // re-assgin index
     int count = 1;
     for(RecentPhoto *recentPhoto in recenPhotoList){

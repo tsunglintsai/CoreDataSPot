@@ -43,7 +43,9 @@
                 if(![INVALID_TAGS containsObject:tagString]){ // remove those tags
                     Tag *tag = [Tag tagWithName:tagString inManagedObjectContext:context];
                     [photo addTagsObject:tag];
-                    [PhotoTagMap PhotoTagMapWithPhoto:photo withTag:tag inManagedObjectContext:context];
+                    if(![tag.tagName isEqualToString:ALL_PHOTO_TAG_NAME]){
+                        [PhotoTagMap PhotoTagMapWithPhoto:photo withTag:tag inManagedObjectContext:context];
+                    }
                 }
             }
             //

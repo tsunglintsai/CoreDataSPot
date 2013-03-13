@@ -21,7 +21,7 @@
     [[CoreDataHelper sharedInstance]executeBlock:^(NSManagedObjectContext *context) {
         self.managedObjectContext = context;
         [self performFetch];
-    }];
+    }];	
 }
 
 - (NSString*) sectionKeyPath{

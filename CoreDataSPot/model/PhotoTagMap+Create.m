@@ -9,6 +9,7 @@
 #import "PhotoTagMap+Create.h"
 #import "Photo.h"
 #import "Tag.h"
+#import "PhotoTagMap.h"
 
 @implementation PhotoTagMap (Create)
 + (PhotoTagMap *)PhotoTagMapWithPhoto:(Photo *) photo withTag:(Tag*)tag

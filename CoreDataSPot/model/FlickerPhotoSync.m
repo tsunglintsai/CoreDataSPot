@@ -44,7 +44,8 @@
             if(error)NSLog(@"%@",error);
         }];
         
-        block();
+        //block();
+        
         [context performBlockAndWait:^{ // somehow without close and reopen document, all tag photo list show empty
             [[CoreDataHelper sharedInstance]closeDocument:^(NSManagedObjectContext *context) {
                 [[CoreDataHelper sharedInstance]executeBlock:^(NSManagedObjectContext *context) {

@@ -38,6 +38,7 @@
             photo.imageSURL = [[FlickrFetcher urlForPhoto:flickrPhoto format:FlickrPhotoFormatSquare]   absoluteString];
             photo.photoId   = photoId;
             // assigne photo to tags
+        
             NSArray *tags = [[flickrPhoto valueForKeyPath:FLICKR_TAGS] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
             for( NSString *tagString in tags){
                 if(![INVALID_TAGS containsObject:tagString]){ // remove those tags
@@ -48,10 +49,10 @@
                     }
                 }
             }
-            //
+            
             Tag *tag = [Tag tagWithName:ALL_PHOTO_TAG_NAME inManagedObjectContext:context];
             [photo addTagsObject:tag];
-            
+             
         } else {
             photo = [matches lastObject];
             //NSLog(@"found photo entry in database");

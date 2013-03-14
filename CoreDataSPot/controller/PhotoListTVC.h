@@ -17,4 +17,5 @@
 @property (nonatomic, strong) NSArray *sortDescriptors; // array of NSSortDescriptor describing how photo been sorted
 @property (nonatomic, strong) NSString *sectionKeyPath;
 @property (nonatomic, strong) NSString *entityName;
+@property (nonatomic) NSUInteger fetchLimit;
 @end

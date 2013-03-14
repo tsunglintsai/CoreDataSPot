@@ -16,15 +16,25 @@
 @implementation RecentPhotosTVC
 -(void)viewDidLoad{
     [super viewDidLoad];
-    self.photoListPredicate = [NSPredicate predicateWithFormat:@"recent != nil"];
-    self.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"recent.orderNumber" ascending:YES]];
     [[CoreDataHelper sharedInstance]executeBlock:^(NSManagedObjectContext *context) {
         self.managedObjectContext = context;
         [self performFetch];
     }];	
 }
 
+- (NSPredicate*)photoListPredicate{
+    return [NSPredicate predicateWithFormat:@"lastView != nil"] ;
+}
+
+- (NSArray*) sortDescriptors{
+    return @[[NSSortDescriptor sortDescriptorWithKey:@"lastView" ascending:NO]];
+}
+
 - (NSString*) sectionKeyPath{
     return nil;
+}
+
+- (NSUInteger)fetchLimit{
+    return 5;
 }
 @end

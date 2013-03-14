@@ -64,6 +64,9 @@
                     [segue.destinationViewController performSelector:@selector(setSelectedTag:) withObject:tag];
                 }
                 if ([segue.destinationViewController respondsToSelector:@selector(setManagedObjectContext:)]) {
+                    NSError *error;
+                    [self.managedObjectContext save:&error];
+                    if(error)NSLog(@"%@",error);
                     [segue.destinationViewController performSelector:@selector(setManagedObjectContext:) withObject:self.managedObjectContext];
                 }
             }

@@ -34,6 +34,9 @@ typedef void (^LoadDataCallBackBlock)(void);
     self.isReloading = YES;
     [[CoreDataHelper sharedInstance] executeBlock:^(NSManagedObjectContext *context) {
         self.managedObjectContext = context;
+        
+        
+        
         self.isReloading = NO;
         if([self.fetchedResultsController.fetchedObjects count] == 0){
             [self refresh];

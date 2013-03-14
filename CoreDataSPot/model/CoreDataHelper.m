@@ -26,6 +26,7 @@
 
 
 - (void) executeBlock:(completion_block_t)completionBlock{
+    NSLog(@"test");
     if(self.document && self.document.documentState == UIDocumentStateNormal){ // if document already in normal state execute block directly
         //NSLog(@"document is ready");
         completionBlock(self.document.managedObjectContext);
@@ -58,11 +59,16 @@
     }
 }
 
-- (void) closeDocument:(completion_block_t)completionBlock{
-    [self.document closeWithCompletionHandler:^(BOOL success) {
-        completionBlock(nil);
-    }];
+-(void) saveDocument{
+    [self.document saveToURL:self.document.fileURL
+            forSaveOperation:UIDocumentSaveForOverwriting
+           completionHandler:^(BOOL success) {
+               if (success) {
+                   NSLog(@"saved");
+               } else {
+                   NSLog(@"unable to save");
+               }
+           }];
 }
-
 
 @end

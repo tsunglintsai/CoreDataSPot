@@ -4,6 +4,7 @@
         <attribute name="imageHURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageMURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageSURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastView" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="photoId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="subtitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="thumbnail" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -20,7 +21,7 @@
         <relationship name="tag" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Tag" inverseName="photoTagMap" inverseEntity="Tag" syncable="YES"/>
     </entity>
     <entity name="RecentPhoto" representedClassName="RecentPhoto" syncable="YES">
-        <attribute name="orderNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="viewTime" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="photo" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="recent" inverseEntity="Photo" syncable="YES"/>
     </entity>
     <entity name="Tag" representedClassName="Tag" syncable="YES">
@@ -29,7 +30,7 @@
         <relationship name="photoTagMap" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PhotoTagMap" inverseName="tag" inverseEntity="PhotoTagMap" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Photo" positionX="160" positionY="192" width="128" height="195"/>
+        <element name="Photo" positionX="160" positionY="192" width="128" height="210"/>
         <element name="PhotoDeleted" positionX="160" positionY="192" width="128" height="60"/>
         <element name="PhotoTagMap" positionX="160" positionY="192" width="128" height="75"/>
         <element name="RecentPhoto" positionX="160" positionY="192" width="128" height="75"/>

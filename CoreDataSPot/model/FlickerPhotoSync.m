@@ -40,6 +40,8 @@
         }
         NSError *error;
         [context save:&error];
+        [[CoreDataHelper sharedInstance]saveDocument]; // somehow there is a delay in object saving to store. force context flush data back to store.
+        NSLog(@"save called");
         if(error)NSLog(@"%@",error);
     }];
     block();

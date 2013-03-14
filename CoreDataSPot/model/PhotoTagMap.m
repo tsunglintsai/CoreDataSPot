@@ -2,7 +2,7 @@
 //  PhotoTagMap.m
 //  CoreDataSPot
 //
-//  Created by Daniela on 3/13/13.
+//  Created by Henry on 3/14/13.
 //  Copyright (c) 2013 Pyrogusto. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  Photo.h
 //  CoreDataSPot
 //
-//  Created by Henry on 3/12/13.
+//  Created by Henry on 3/14/13.
 //  Copyright (c) 2013 Pyrogusto. All rights reserved.
 //
 
@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSString * subtitle;
 @property (nonatomic, retain) NSData * thumbnail;
 @property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSDate * lastView;
 @property (nonatomic, retain) NSSet *photoTagMap;
 @property (nonatomic, retain) RecentPhoto *recent;
 @property (nonatomic, retain) NSSet *tags;

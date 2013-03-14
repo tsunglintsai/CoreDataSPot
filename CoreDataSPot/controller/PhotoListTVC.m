@@ -9,7 +9,6 @@
 #import "PhotoListTVC.h"
 #import "Photo.h"
 #import "CoreDataHelper.h"
-#import "RecentPhoto+Create.h"
 #import "PhotoCell.h"
 
 @interface PhotoListTVC ()
@@ -23,12 +22,17 @@
     return UIInterfaceOrientationIsPortrait(orientation);
 }
 
+
 - (void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext{
     _managedObjectContext = managedObjectContext;
     if (managedObjectContext) {
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:self.entityName];
         request.sortDescriptors = self.sortDescriptors;
         request.predicate = self.photoListPredicate;
+        [request setReturnsObjectsAsFaults:NO];
+        if(self.fetchLimit > 0){
+            [request setFetchLimit:self.fetchLimit];
+        }
         self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:managedObjectContext sectionNameKeyPath:self.sectionKeyPath cacheName:nil];
     } else {
         self.fetchedResultsController = nil;
@@ -106,9 +110,10 @@
                     [self transferSplitViewBarButtonItemToViewController:segue.destinationViewController];
                     Photo *photo = [self getPhotoFromEntity:[self.fetchedResultsController objectAtIndexPath:indexPath]];
                     [self.managedObjectContext performBlockAndWait:^{
-                        [RecentPhoto addPhoto:photo inManagedObjectContext:self.managedObjectContext];
+                        photo.lastView = [[NSDate alloc]init];
                         NSError *error;
                         [self.managedObjectContext save:&error];
+                        //[[CoreDataHelper sharedInstance]saveDocument];
                         if(error) NSLog(@"%@",error);
                     }];
                     // make a switch between ipad and iphone

@@ -27,7 +27,7 @@
 - (NSPredicate*)photoListPredicate{
     return [self.selectedTag.tagName isEqualToString:ALL_PHOTO_TAG_NAME] ?
     [NSPredicate predicateWithFormat:nil] :
-    [NSPredicate predicateWithFormat:@"tags.tagName CONTAINS %@", self.selectedTag.tagName] ;
+    [NSPredicate predicateWithFormat:@"tags CONTAINS %@", self.selectedTag] ;
 }
 
 -(NSString*) entityName{

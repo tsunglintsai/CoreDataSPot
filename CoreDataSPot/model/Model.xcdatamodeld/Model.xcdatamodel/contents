@@ -10,7 +10,6 @@
         <attribute name="thumbnail" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="photoTagMap" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PhotoTagMap" inverseName="photo" inverseEntity="PhotoTagMap" syncable="YES"/>
-        <relationship name="recent" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="RecentPhoto" inverseName="photo" inverseEntity="RecentPhoto" syncable="YES"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="photos" inverseEntity="Tag" syncable="YES"/>
     </entity>
     <entity name="PhotoDeleted" representedClassName="PhotoDeleted" syncable="YES">
@@ -20,20 +19,15 @@
         <relationship name="photo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="photoTagMap" inverseEntity="Photo" syncable="YES"/>
         <relationship name="tag" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Tag" inverseName="photoTagMap" inverseEntity="Tag" syncable="YES"/>
     </entity>
-    <entity name="RecentPhoto" representedClassName="RecentPhoto" syncable="YES">
-        <attribute name="viewTime" optional="YES" attributeType="Date" syncable="YES"/>
-        <relationship name="photo" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="recent" inverseEntity="Photo" syncable="YES"/>
-    </entity>
     <entity name="Tag" representedClassName="Tag" syncable="YES">
         <attribute name="tagName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="tags" inverseEntity="Photo" syncable="YES"/>
         <relationship name="photoTagMap" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PhotoTagMap" inverseName="tag" inverseEntity="PhotoTagMap" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Photo" positionX="160" positionY="192" width="128" height="210"/>
+        <element name="Photo" positionX="160" positionY="192" width="128" height="195"/>
         <element name="PhotoDeleted" positionX="160" positionY="192" width="128" height="60"/>
         <element name="PhotoTagMap" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="RecentPhoto" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Tag" positionX="160" positionY="192" width="128" height="90"/>
     </elements>
 </model>

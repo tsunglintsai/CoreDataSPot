@@ -2,27 +2,26 @@
 //  Photo.h
 //  CoreDataSPot
 //
-//  Created by Henry on 3/14/13.
+//  Created by Henry on 3/16/13.
 //  Copyright (c) 2013 Pyrogusto. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class PhotoTagMap, RecentPhoto, Tag;
+@class PhotoTagMap, Tag;
 
 @interface Photo : NSManagedObject
 
 @property (nonatomic, retain) NSString * imageHURL;
 @property (nonatomic, retain) NSString * imageMURL;
 @property (nonatomic, retain) NSString * imageSURL;
+@property (nonatomic, retain) NSDate * lastView;
 @property (nonatomic, retain) NSString * photoId;
 @property (nonatomic, retain) NSString * subtitle;
 @property (nonatomic, retain) NSData * thumbnail;
 @property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSDate * lastView;
 @property (nonatomic, retain) NSSet *photoTagMap;
-@property (nonatomic, retain) RecentPhoto *recent;
 @property (nonatomic, retain) NSSet *tags;
 @end
 
